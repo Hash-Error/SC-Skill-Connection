@@ -26,7 +26,8 @@ export const UserProfile: React.FC = () => {
     university: "Stanford University",
     department: "Dept. of Computer Science & Artificial Intelligence",
     bio: "Passionate Full-Stack Developer specializing in distributed systems and AI integration. Currently focused on building scalable collaboration tools for the Digital Atheneum. 3x Hackathon winner and tech community mentor.",
-    avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&auto=format&fit=crop"
+    avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&auto=format&fit=crop",
+    banner: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop"
   });
 
   const [links, setLinks] = useState([
@@ -117,7 +118,7 @@ export const UserProfile: React.FC = () => {
       <section className="relative">
         <div className="h-72 w-full premium-gradient relative overflow-hidden">
           <img 
-            src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop" 
+            src={profile.banner} 
             alt="Banner" 
             className="w-full h-full object-cover opacity-30 mix-blend-overlay"
           />
@@ -340,15 +341,27 @@ export const UserProfile: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="space-y-2">
-                      <label className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest ml-1">Profile Image (URL)</label>
-                      <input 
-                        type="text" 
-                        value={profile.avatar}
-                        onChange={(e) => setProfile({...profile, avatar: e.target.value})}
-                        placeholder="https://images.unsplash.com/..."
-                        className="w-full px-6 py-4 bg-surface-container border-none rounded-2xl font-bold text-sm focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-inner"
-                      />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest ml-1">Profile Image (URL)</label>
+                        <input 
+                          type="text" 
+                          value={profile.avatar}
+                          onChange={(e) => setProfile({...profile, avatar: e.target.value})}
+                          placeholder="https://images.unsplash.com/..."
+                          className="w-full px-6 py-4 bg-surface-container border-none rounded-2xl font-bold text-sm focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-inner"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest ml-1">Cover Image (URL)</label>
+                        <input 
+                          type="text" 
+                          value={profile.banner}
+                          onChange={(e) => setProfile({...profile, banner: e.target.value})}
+                          placeholder="https://images.unsplash.com/..."
+                          className="w-full px-6 py-4 bg-surface-container border-none rounded-2xl font-bold text-sm focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-inner"
+                        />
+                      </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
