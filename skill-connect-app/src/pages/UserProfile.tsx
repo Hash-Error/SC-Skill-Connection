@@ -112,6 +112,30 @@ export const UserProfile: React.FC = () => {
     setMilestones(newMilestones);
   };
 
+  const [teams, setTeams] = useState([
+    { name: "Athena Nexus", role: "Lead Architect", code: "AN", color: "bg-teal-400" },
+    { name: "Quantum Reality", role: "Frontend Dev", code: "QR", color: "bg-indigo-400" }
+  ]);
+
+  const removeTeam = (index: number) => {
+    setTeams(teams.filter((_, i) => i !== index));
+  };
+
+  const addTeam = () => {
+    setTeams([...teams, { 
+      name: "New Team", 
+      role: "Contributor", 
+      code: "NT", 
+      color: "bg-primary" 
+    }]);
+  };
+
+  const updateTeam = (index: number, field: string, value: string) => {
+    const newTeams = [...teams];
+    newTeams[index] = { ...newTeams[index], [field]: value };
+    setTeams(newTeams);
+  };
+
   return (
     <div className="pt-18 bg-surface min-h-screen">
       {/* Banner & Header */}
@@ -206,10 +230,7 @@ export const UserProfile: React.FC = () => {
               <Users size={24} className="text-teal-400" />
             </div>
             <div className="space-y-6">
-              {[
-                { name: "Athena Nexus", role: "Lead Architect", code: "AN", color: "bg-teal-400" },
-                { name: "Quantum Reality", role: "Frontend Dev", code: "QR", color: "bg-indigo-400" }
-              ].map((team, idx) => (
+              {teams.map((team, idx) => (
                 <div key={idx} className="flex items-center gap-4 p-4 rounded-3xl bg-white/5 hover:bg-white/10 transition-all cursor-pointer">
                   <div className={`w-14 h-14 rounded-2xl ${team.color} flex items-center justify-center text-indigo-950 font-black text-lg shadow-lg`}>
                     {team.code}
@@ -426,6 +447,66 @@ export const UserProfile: React.FC = () => {
                             onChange={(e) => updateLink(link.key, e.target.value)}
                             className="w-full px-6 py-4 bg-surface-container border-none rounded-2xl font-bold text-sm focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-inner"
                           />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Teams Management */}
+                  <div className="pt-8 border-t border-outline-variant/10">
+                    <div className="flex justify-between items-center mb-8">
+                      <div>
+                        <h4 className="text-xl font-black text-primary">My Teams</h4>
+                        <p className="text-on-surface-variant text-xs font-bold uppercase tracking-widest mt-1">Manage your active squads</p>
+                      </div>
+                      <button 
+                        onClick={addTeam}
+                        className="flex items-center gap-2 px-6 py-3 bg-surface-container hover:bg-teal-400 hover:text-indigo-950 rounded-xl font-black text-xs transition-all active:scale-95 shadow-sm"
+                      >
+                        <Plus size={16} />
+                        Add Team
+                      </button>
+                    </div>
+
+                    <div className="space-y-4">
+                      {teams.map((team, idx) => (
+                        <div key={idx} className="flex flex-col md:flex-row items-center gap-6 p-6 bg-surface-container rounded-[1.5rem] group hover:bg-white hover:shadow-lg transition-all border border-transparent hover:border-outline-variant/10">
+                          <div className="w-full md:w-20">
+                            <label className="text-[8px] font-black text-on-surface-variant uppercase tracking-widest mb-2 block ml-1">Icon/Code</label>
+                            <input 
+                              type="text" 
+                              maxLength={2}
+                              value={team.code}
+                              onChange={(e) => updateTeam(idx, 'code', e.target.value)}
+                              className="w-full px-4 py-3 bg-white/50 border-none rounded-xl font-black text-center text-sm focus:ring-2 focus:ring-primary focus:bg-white transition-all uppercase"
+                            />
+                          </div>
+                          <div className="flex-1 w-full md:w-auto">
+                            <label className="text-[8px] font-black text-on-surface-variant uppercase tracking-widest mb-2 block ml-1">Team Name</label>
+                            <input 
+                              type="text" 
+                              value={team.name}
+                              onChange={(e) => updateTeam(idx, 'name', e.target.value)}
+                              className="w-full px-4 py-3 bg-white/50 border-none rounded-xl font-bold text-sm focus:ring-2 focus:ring-primary focus:bg-white transition-all"
+                            />
+                          </div>
+                          <div className="w-full md:w-48">
+                            <label className="text-[8px] font-black text-on-surface-variant uppercase tracking-widest mb-2 block ml-1">Your Role</label>
+                            <input 
+                              type="text" 
+                              value={team.role}
+                              onChange={(e) => updateTeam(idx, 'role', e.target.value)}
+                              className="w-full px-4 py-3 bg-white/50 border-none rounded-xl font-bold text-sm focus:ring-2 focus:ring-primary focus:bg-white transition-all"
+                            />
+                          </div>
+                          <div className="flex items-end pb-1">
+                            <button 
+                              onClick={() => removeTeam(idx)}
+                              className="p-3 text-on-surface-variant hover:text-error hover:bg-error/5 rounded-xl transition-all"
+                            >
+                              <Trash2 size={20} />
+                            </button>
+                          </div>
                         </div>
                       ))}
                     </div>

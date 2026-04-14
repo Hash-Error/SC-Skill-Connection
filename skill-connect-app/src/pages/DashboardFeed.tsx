@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Search, 
   Bell, 
@@ -22,7 +22,8 @@ import {
 import { Link } from 'react-router-dom';
 
 export const DashboardFeed: React.FC = () => {
-  const posts = [
+  const [searchQuery, setSearchQuery] = useState("");
+  const [feedPosts, setFeedPosts] = useState([
     {
       id: 1,
       user: {
@@ -38,7 +39,9 @@ export const DashboardFeed: React.FC = () => {
         prize: "$50,000"
       },
       likes: 24,
-      comments: 8
+      comments: 8,
+      isLiked: false,
+      isBookmarked: false
     },
     {
       id: 2,
@@ -53,9 +56,36 @@ export const DashboardFeed: React.FC = () => {
       content: "We are entering a new era where privacy and latency concerns are driving LLMs to run directly on consumer hardware. This changes everything for app developers...",
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop",
       likes: 142,
-      comments: 12
+      comments: 12,
+      isLiked: true,
+      isBookmarked: false
     }
-  ];
+  ]);
+
+  const toggleLike = (id: number) => {
+    setFeedPosts(feedPosts.map(post => {
+      if (post.id === id) {
+        return {
+          ...post,
+          likes: post.isLiked ? post.likes - 1 : post.likes + 1,
+          isLiked: !post.isLiked
+        };
+      }
+      return post;
+    }));
+  };
+
+  const toggleBookmark = (id: number) => {
+    setFeedPosts(feedPosts.map(post => {
+      if (post.id === id) {
+        return {
+          ...post,
+          isBookmarked: !post.isBookmarked
+        };
+      }
+      return post;
+    }));
+  };
 
   const suggested = [
     { name: "Liam Rodriguez", role: "Python, AWS expert", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100&auto=format&fit=crop" },
@@ -77,6 +107,8 @@ export const DashboardFeed: React.FC = () => {
           <input 
             type="text" 
             placeholder="Search the feed for skills, posts, or people..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full bg-surface-container-high border-none rounded-[1.25rem] py-4 pl-16 pr-6 text-base focus:ring-2 focus:ring-primary focus:bg-white transition-all diffuse-shadow"
           />
         </div>
@@ -114,7 +146,7 @@ export const DashboardFeed: React.FC = () => {
               <span className="bg-white/10 px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase">Python</span>
             </div>
             <button className="w-full py-4 bg-white/20 hover:bg-white/30 rounded-2xl text-xs font-black transition-all backdrop-blur-xl">
-              Edit Profile
+              <Link to="/profile">Edit Profile</Link>
             </button>
           </section>
         </aside>
@@ -128,7 +160,14 @@ export const DashboardFeed: React.FC = () => {
             </button>
           </div>
 
-          {posts.map(post => (
+          {feedPosts
+            .filter(post => 
+              post.content.toLowerCase().includes(searchQuery.toLowerCase()) || 
+              post.user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+              post.tag.toLowerCase().includes(searchQuery.toLowerCase()) ||
+              (post.title && post.title.toLowerCase().includes(searchQuery.toLowerCase()))
+            )
+            .map(post => (
             <motion.article 
               key={post.id}
               initial={{ opacity: 0, y: 20 }}
@@ -179,8 +218,11 @@ export const DashboardFeed: React.FC = () => {
 
               <div className="px-10 py-6 border-t border-outline-variant/10 flex justify-between items-center">
                 <div className="flex gap-8">
-                  <button className="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-all font-bold">
-                    <Heart size={20} />
+                  <button 
+                    onClick={() => toggleLike(post.id)}
+                    className={`flex items-center gap-2 transition-all font-bold ${post.isLiked ? 'text-error' : 'text-on-surface-variant hover:text-error'}`}
+                  >
+                    <Heart size={20} fill={post.isLiked ? "currentColor" : "none"} className={post.isLiked ? "scale-110" : ""} />
                     <span>{post.likes}</span>
                   </button>
                   <button className="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-all font-bold group">
@@ -190,8 +232,11 @@ export const DashboardFeed: React.FC = () => {
                   <button className="text-on-surface-variant hover:text-primary transition-all group">
                     <Share2 size={20} className="group-hover:scale-110 transition-transform" />
                   </button>
-                  <button className="text-on-surface-variant hover:text-primary transition-all group">
-                    <Bookmark size={20} className="group-hover:scale-110 transition-transform" />
+                  <button 
+                    onClick={() => toggleBookmark(post.id)}
+                    className={`transition-all group ${post.isBookmarked ? 'text-primary' : 'text-on-surface-variant hover:text-primary'}`}
+                  >
+                    <Bookmark size={20} fill={post.isBookmarked ? "currentColor" : "none"} className="group-hover:scale-110 transition-transform" />
                   </button>
                   <button className="text-on-surface-variant hover:text-primary transition-all group">
                     <Send size={20} className="group-hover:scale-110 transition-transform" />
@@ -201,7 +246,10 @@ export const DashboardFeed: React.FC = () => {
                   <button className="p-3 text-on-surface-variant hover:bg-surface-container rounded-xl transition-all">
                     <MoreHorizontal size={20} />
                   </button>
-                  <button className="px-8 py-3 bg-primary text-white rounded-xl font-black text-sm shadow-xl shadow-primary/10 hover:shadow-primary/20 hover:scale-105 active:scale-95 transition-all">
+                  <button 
+                    onClick={() => alert(`Applied to join ${post.user.name}'s project!`)}
+                    className="px-8 py-3 bg-primary text-white rounded-xl font-black text-sm shadow-xl shadow-primary/10 hover:shadow-primary/20 hover:scale-105 active:scale-95 transition-all"
+                  >
                     Join Project
                   </button>
                 </div>
