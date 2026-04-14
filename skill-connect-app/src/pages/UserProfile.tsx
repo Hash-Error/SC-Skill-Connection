@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Mail, 
   Globe, 
@@ -11,10 +11,22 @@ import {
   User, 
   BookOpen,
   Briefcase,
-  Trophy
+  Trophy,
+  X,
+  Camera,
+  Check
 } from 'lucide-react';
 
 export const UserProfile: React.FC = () => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [profile, setProfile] = useState({
+    name: "Julian Thorne",
+    university: "Stanford University",
+    department: "Dept. of Computer Science & Artificial Intelligence",
+    bio: "Passionate Full-Stack Developer specializing in distributed systems and AI integration. Currently focused on building scalable collaboration tools for the Digital Atheneum. 3x Hackathon winner and tech community mentor.",
+    avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&auto=format&fit=crop"
+  });
+
   const skills = [
     { name: "React", level: 12, color: "bg-primary-fixed text-on-primary-fixed" },
     { name: "Python", level: 8, color: "bg-secondary-container text-on-secondary-container" },
@@ -72,20 +84,23 @@ export const UserProfile: React.FC = () => {
               className="h-56 w-56 rounded-[2.5rem] border-[8px] border-surface bg-white overflow-hidden shadow-2xl z-10"
             >
               <img 
-                src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&auto=format&fit=crop" 
+                src={profile.avatar} 
                 className="w-full h-full object-cover" 
                 alt="Avatar" 
               />
             </motion.div>
             
             <div className="flex-grow pb-4 z-10">
-              <h1 className="text-5xl font-black text-on-surface tracking-tighter mb-2">Julian Thorne</h1>
-              <p className="text-xl font-bold text-primary mb-1">Stanford University</p>
-              <p className="text-base text-on-surface-variant font-medium tracking-wide">Dept. of Computer Science & Artificial Intelligence</p>
+              <h1 className="text-5xl font-black text-on-surface tracking-tighter mb-2">{profile.name}</h1>
+              <p className="text-xl font-bold text-primary mb-1">{profile.university}</p>
+              <p className="text-base text-on-surface-variant font-medium tracking-wide">{profile.department}</p>
             </div>
             
             <div className="pb-4 z-10">
-              <button className="premium-gradient text-white px-10 py-4 rounded-2xl font-black flex items-center gap-3 shadow-xl hover:scale-[0.98] transition-transform">
+              <button 
+                onClick={() => setIsEditing(true)}
+                className="premium-gradient text-white px-10 py-4 rounded-2xl font-black flex items-center gap-3 shadow-xl hover:scale-[0.98] transition-transform"
+              >
                 <Edit size={20} />
                 Edit Profile
               </button>
@@ -108,7 +123,7 @@ export const UserProfile: React.FC = () => {
               Bio
             </h3>
             <p className="text-on-surface-variant text-lg leading-relaxed font-medium">
-              Passionate Full-Stack Developer specializing in distributed systems and AI integration. Currently focused on building scalable collaboration tools for the Digital Atheneum. 3x Hackathon winner and tech community mentor.
+              {profile.bio}
             </p>
           </motion.section>
 
@@ -230,6 +245,119 @@ export const UserProfile: React.FC = () => {
           </motion.section>
         </div>
       </div>
+
+      {/* Edit Profile Modal */}
+      <AnimatePresence>
+        {isEditing && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center px-6">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsEditing(false)}
+              className="absolute inset-0 bg-indigo-950/60 backdrop-blur-sm"
+            />
+            
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-2xl bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-outline-variant/10"
+            >
+              <div className="h-1.5 w-full premium-gradient"></div>
+              
+              <div className="p-10">
+                <header className="flex justify-between items-center mb-10">
+                  <div>
+                    <h2 className="text-3xl font-black text-primary tracking-tight">Edit Profile</h2>
+                    <p className="text-on-surface-variant font-medium mt-1 uppercase text-[10px] tracking-widest">Update your digital persona</p>
+                  </div>
+                  <button 
+                    onClick={() => setIsEditing(false)}
+                    className="p-3 hover:bg-surface-container rounded-2xl transition-all text-on-surface-variant"
+                  >
+                    <X size={24} />
+                  </button>
+                </header>
+
+                <div className="space-y-8">
+                  <div className="flex items-center gap-8 mb-4">
+                    <div className="relative group cursor-pointer">
+                      <div className="w-24 h-24 rounded-[1.5rem] overflow-hidden border-4 border-surface-container group-hover:opacity-80 transition-opacity">
+                        <img src={profile.avatar} className="w-full h-full object-cover" alt="Avatar Preview" />
+                      </div>
+                      <div className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity bg-black/20 rounded-[1.5rem]">
+                        <Camera size={20} />
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-black text-on-surface">Profile Identity</h4>
+                      <p className="text-xs text-on-surface-variant font-medium mt-1">Recommended: 400x400px</p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest ml-1">Full Name</label>
+                      <input 
+                        type="text" 
+                        value={profile.name}
+                        onChange={(e) => setProfile({...profile, name: e.target.value})}
+                        className="w-full px-6 py-4 bg-surface-container border-none rounded-2xl font-bold focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-inner"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest ml-1">University</label>
+                      <input 
+                        type="text" 
+                        value={profile.university}
+                        onChange={(e) => setProfile({...profile, university: e.target.value})}
+                        className="w-full px-6 py-4 bg-surface-container border-none rounded-2xl font-bold focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-inner"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest ml-1">Department</label>
+                    <input 
+                      type="text" 
+                      value={profile.department}
+                      onChange={(e) => setProfile({...profile, department: e.target.value})}
+                      className="w-full px-6 py-4 bg-surface-container border-none rounded-2xl font-bold focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-inner"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest ml-1">Bio</label>
+                    <textarea 
+                      rows={4}
+                      value={profile.bio}
+                      onChange={(e) => setProfile({...profile, bio: e.target.value})}
+                      className="w-full px-6 py-4 bg-surface-container border-none rounded-2xl font-medium text-sm leading-relaxed focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-inner"
+                    />
+                  </div>
+                </div>
+
+                <div className="mt-12 flex justify-end gap-4">
+                  <button 
+                    onClick={() => setIsEditing(false)}
+                    className="px-8 py-4 font-black text-on-surface-variant hover:text-primary transition-all text-sm uppercase tracking-widest"
+                  >
+                    Discard Changes
+                  </button>
+                  <button 
+                    onClick={() => setIsEditing(false)}
+                    className="premium-gradient px-10 py-4 rounded-2xl text-white font-black text-sm uppercase tracking-widest shadow-xl shadow-primary/20 hover:scale-[1.05] active:scale-95 transition-all flex items-center gap-2"
+                  >
+                    <Check size={18} />
+                    Sync Profile
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
