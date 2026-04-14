@@ -29,6 +29,13 @@ export const UserProfile: React.FC = () => {
     avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&auto=format&fit=crop"
   });
 
+  const [links, setLinks] = useState([
+    { icon: <Mail size={22} />, label: "j.thorne@stanford.edu", color: "text-red-500", key: "email" },
+    { icon: <LinkIcon size={22} />, label: "linkedin.com/in/jthorne", color: "text-blue-600", key: "linkedin" },
+    { icon: <Globe size={22} />, label: "github.com/jthorne-dev", color: "text-slate-900", key: "github" },
+    { icon: <LinkIcon size={22} />, label: "thorne.dev", color: "text-primary", key: "website" }
+  ]);
+
   const [skills, setSkills] = useState([
     { name: "React", level: 12, color: "bg-primary-fixed text-on-primary-fixed" },
     { name: "Python", level: 8, color: "bg-secondary-container text-on-secondary-container" },
@@ -50,6 +57,10 @@ export const UserProfile: React.FC = () => {
     const newSkills = [...skills];
     newSkills[index] = { ...newSkills[index], [field]: value };
     setSkills(newSkills);
+  };
+
+  const updateLink = (key: string, value: string) => {
+    setLinks(links.map(link => link.key === key ? { ...link, label: value } : link));
   };
 
   const milestones = [
@@ -151,17 +162,12 @@ export const UserProfile: React.FC = () => {
           >
             <h3 className="text-2xl font-black text-primary mb-8">Networks</h3>
             <div className="space-y-6">
-              {[
-                { icon: <Mail size={22} />, label: "j.thorne@stanford.edu", color: "text-red-500" },
-                { icon: <LinkIcon size={22} />, label: "linkedin.com/in/jthorne", color: "text-blue-600" },
-                { icon: <Globe size={22} />, label: "github.com/jthorne-dev", color: "text-slate-900" },
-                { icon: <LinkIcon size={22} />, label: "thorne.dev", color: "text-primary" }
-              ].map((link, idx) => (
+              {links.map((link, idx) => (
                 <a key={idx} href="#" className="flex items-center gap-5 text-on-surface-variant hover:text-primary transition-all group">
                   <div className="w-12 h-12 rounded-2xl bg-surface-container flex items-center justify-center group-hover:bg-primary/10 transition-colors">
                     <span className={link.color}>{link.icon}</span>
                   </div>
-                  <span className="font-bold text-sm">{link.label}</span>
+                  <span className="font-bold text-sm truncate max-w-[200px]">{link.label}</span>
                 </a>
               ))}
             </div>
@@ -352,6 +358,31 @@ export const UserProfile: React.FC = () => {
                         onChange={(e) => setProfile({...profile, bio: e.target.value})}
                         className="w-full px-6 py-4 bg-surface-container border-none rounded-2xl font-medium text-sm leading-relaxed focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-inner"
                       />
+                    </div>
+                  </div>
+
+                  {/* Networks Management */}
+                  <div className="pt-8 border-t border-outline-variant/10">
+                    <div className="mb-8">
+                      <h4 className="text-xl font-black text-primary">Networks</h4>
+                      <p className="text-on-surface-variant text-xs font-bold uppercase tracking-widest mt-1">Your professional footprint</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {links.map((link) => (
+                        <div key={link.key} className="space-y-2">
+                          <div className="flex items-center gap-2 ml-1">
+                            <span className={link.color}>{link.icon}</span>
+                            <label className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest">{link.key}</label>
+                          </div>
+                          <input 
+                            type="text" 
+                            value={link.label}
+                            onChange={(e) => updateLink(link.key, e.target.value)}
+                            className="w-full px-6 py-4 bg-surface-container border-none rounded-2xl font-bold text-sm focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-inner"
+                          />
+                        </div>
+                      ))}
                     </div>
                   </div>
 
