@@ -336,8 +336,19 @@ export const UserProfile: React.FC = () => {
                       </div>
                       <div>
                         <h4 className="font-black text-on-surface">Profile Identity</h4>
-                        <p className="text-xs text-on-surface-variant font-medium mt-1">Recommended: 400x400px</p>
+                        <p className="text-xs text-on-surface-variant font-medium mt-1 uppercase tracking-widest">Julian Thorne</p>
                       </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest ml-1">Profile Image (URL)</label>
+                      <input 
+                        type="text" 
+                        value={profile.avatar}
+                        onChange={(e) => setProfile({...profile, avatar: e.target.value})}
+                        placeholder="https://images.unsplash.com/..."
+                        className="w-full px-6 py-4 bg-surface-container border-none rounded-2xl font-bold text-sm focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-inner"
+                      />
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
