@@ -63,7 +63,7 @@ export const UserProfile: React.FC = () => {
     setLinks(links.map(link => link.key === key ? { ...link, label: value } : link));
   };
 
-  const milestones = [
+  const [milestones, setMilestones] = useState([
     {
       type: "Internship",
       role: "Software Engineering Intern",
@@ -88,7 +88,28 @@ export const UserProfile: React.FC = () => {
       desc: "Collaborated on deep learning model optimization for edge devices. Published findings in the internal engineering journal.",
       color: "bg-primary-fixed"
     }
-  ];
+  ]);
+
+  const removeMilestone = (index: number) => {
+    setMilestones(milestones.filter((_, i) => i !== index));
+  };
+
+  const addMilestone = () => {
+    setMilestones([...milestones, {
+      type: "Internship",
+      role: "New Milestone",
+      at: "Organization",
+      time: "2024",
+      desc: "Description of your achievement...",
+      color: "bg-primary"
+    }]);
+  };
+
+  const updateMilestone = (index: number, field: string, value: string) => {
+    const newMilestones = [...milestones];
+    newMilestones[index] = { ...newMilestones[index], [field]: value };
+    setMilestones(newMilestones);
+  };
 
   return (
     <div className="pt-18 bg-surface min-h-screen">
@@ -381,6 +402,98 @@ export const UserProfile: React.FC = () => {
                             onChange={(e) => updateLink(link.key, e.target.value)}
                             className="w-full px-6 py-4 bg-surface-container border-none rounded-2xl font-bold text-sm focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-inner"
                           />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Milestones Management */}
+                  <div className="pt-8 border-t border-outline-variant/10">
+                    <div className="flex justify-between items-center mb-8">
+                      <div>
+                        <h4 className="text-xl font-black text-primary">Milestones</h4>
+                        <p className="text-on-surface-variant text-xs font-bold uppercase tracking-widest mt-1">Showcase your journey</p>
+                      </div>
+                      <button 
+                        onClick={addMilestone}
+                        className="flex items-center gap-2 px-6 py-3 bg-surface-container hover:bg-secondary hover:text-white rounded-xl font-black text-xs transition-all active:scale-95 shadow-sm"
+                      >
+                        <Plus size={16} />
+                        Add Milestone
+                      </button>
+                    </div>
+
+                    <div className="space-y-6">
+                      {milestones.map((m, idx) => (
+                        <div key={idx} className="p-8 bg-surface-container rounded-[2rem] border border-transparent hover:border-outline-variant/10 transition-all group">
+                          <div className="flex justify-between items-start mb-6">
+                            <div className="px-4 py-2 bg-white/50 rounded-xl text-[10px] font-black uppercase tracking-widest text-primary">
+                              #{idx + 1} Milestone
+                            </div>
+                            <button 
+                              onClick={() => removeMilestone(idx)}
+                              className="p-2 text-on-surface-variant hover:text-error hover:bg-error/5 rounded-lg transition-all"
+                            >
+                              <Trash2 size={18} />
+                            </button>
+                          </div>
+
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div className="space-y-2">
+                              <label className="text-[8px] font-black text-on-surface-variant uppercase tracking-widest ml-1">Type</label>
+                              <select 
+                                value={m.type}
+                                onChange={(e) => updateMilestone(idx, 'type', e.target.value)}
+                                className="w-full px-4 py-3 bg-white/50 border-none rounded-xl font-bold text-sm focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-sm"
+                              >
+                                <option value="Internship">Internship</option>
+                                <option value="Hackathon Winner">Hackathon Winner</option>
+                                <option value="Certification">Certification</option>
+                                <option value="Publication">Publication</option>
+                              </select>
+                            </div>
+                            <div className="space-y-2">
+                              <label className="text-[8px] font-black text-on-surface-variant uppercase tracking-widest ml-1">Timeline</label>
+                              <input 
+                                type="text" 
+                                value={m.time}
+                                placeholder="e.g. June - Sept 2023"
+                                onChange={(e) => updateMilestone(idx, 'time', e.target.value)}
+                                className="w-full px-4 py-3 bg-white/50 border-none rounded-xl font-bold text-sm focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-sm"
+                              />
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div className="space-y-2">
+                              <label className="text-[8px] font-black text-on-surface-variant uppercase tracking-widest ml-1">Role / Title</label>
+                              <input 
+                                type="text" 
+                                value={m.role}
+                                onChange={(e) => updateMilestone(idx, 'role', e.target.value)}
+                                className="w-full px-4 py-3 bg-white/50 border-none rounded-xl font-bold text-sm focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-sm"
+                              />
+                            </div>
+                            <div className="space-y-2">
+                              <label className="text-[8px] font-black text-on-surface-variant uppercase tracking-widest ml-1">Organization</label>
+                              <input 
+                                type="text" 
+                                value={m.at}
+                                onChange={(e) => updateMilestone(idx, 'at', e.target.value)}
+                                className="w-full px-4 py-3 bg-white/50 border-none rounded-xl font-bold text-sm focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-sm"
+                              />
+                            </div>
+                          </div>
+
+                          <div className="space-y-2">
+                            <label className="text-[8px] font-black text-on-surface-variant uppercase tracking-widest ml-1">Detailed Contribution</label>
+                            <textarea 
+                              rows={3}
+                              value={m.desc}
+                              onChange={(e) => updateMilestone(idx, 'desc', e.target.value)}
+                              className="w-full px-6 py-4 bg-white/50 border-none rounded-[1.5rem] font-medium text-xs leading-relaxed focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-sm resize-none"
+                            />
+                          </div>
                         </div>
                       ))}
                     </div>
