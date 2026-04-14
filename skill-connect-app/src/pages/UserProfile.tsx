@@ -14,7 +14,9 @@ import {
   Trophy,
   X,
   Camera,
-  Check
+  Check,
+  Plus,
+  Trash2
 } from 'lucide-react';
 
 export const UserProfile: React.FC = () => {
@@ -27,14 +29,28 @@ export const UserProfile: React.FC = () => {
     avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&auto=format&fit=crop"
   });
 
-  const skills = [
+  const [skills, setSkills] = useState([
     { name: "React", level: 12, color: "bg-primary-fixed text-on-primary-fixed" },
     { name: "Python", level: 8, color: "bg-secondary-container text-on-secondary-container" },
     { name: "TypeScript", level: 15, color: "bg-tertiary-fixed text-on-tertiary-fixed" },
     { name: "Rust", level: 4, color: "bg-surface-container-highest text-on-surface-variant" },
     { name: "Node.js", level: 9, color: "bg-surface-container-highest text-on-surface-variant" },
     { name: "TensorFlow", level: 6, color: "bg-surface-container-highest text-on-surface-variant" }
-  ];
+  ]);
+
+  const removeSkill = (index: number) => {
+    setSkills(skills.filter((_, i) => i !== index));
+  };
+
+  const addSkill = () => {
+    setSkills([...skills, { name: "New Skill", level: 1, color: "bg-surface-container-highest text-on-surface-variant" }]);
+  };
+
+  const updateSkill = (index: number, field: string, value: any) => {
+    const newSkills = [...skills];
+    newSkills[index] = { ...newSkills[index], [field]: value };
+    setSkills(newSkills);
+  };
 
   const milestones = [
     {
@@ -249,7 +265,7 @@ export const UserProfile: React.FC = () => {
       {/* Edit Profile Modal */}
       <AnimatePresence>
         {isEditing && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center px-6">
+          <div className="fixed inset-0 z-[100] flex items-center justify-center px-6 overflow-y-auto pt-20 pb-10">
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -262,11 +278,11 @@ export const UserProfile: React.FC = () => {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-2xl bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-outline-variant/10"
+              className="relative w-full max-w-3xl bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-outline-variant/10"
             >
               <div className="h-1.5 w-full premium-gradient"></div>
               
-              <div className="p-10">
+              <div className="p-8 md:p-12 max-h-[85vh] overflow-y-auto text-on-surface">
                 <header className="flex justify-between items-center mb-10">
                   <div>
                     <h2 className="text-3xl font-black text-primary tracking-tight">Edit Profile</h2>
@@ -280,74 +296,126 @@ export const UserProfile: React.FC = () => {
                   </button>
                 </header>
 
-                <div className="space-y-8">
-                  <div className="flex items-center gap-8 mb-4">
-                    <div className="relative group cursor-pointer">
-                      <div className="w-24 h-24 rounded-[1.5rem] overflow-hidden border-4 border-surface-container group-hover:opacity-80 transition-opacity">
-                        <img src={profile.avatar} className="w-full h-full object-cover" alt="Avatar Preview" />
+                <div className="space-y-12">
+                  <div className="space-y-8">
+                    <div className="flex items-center gap-8 mb-4">
+                      <div className="relative group cursor-pointer">
+                        <div className="w-24 h-24 rounded-[1.5rem] overflow-hidden border-4 border-surface-container group-hover:opacity-80 transition-opacity">
+                          <img src={profile.avatar} className="w-full h-full object-cover" alt="Avatar Preview" />
+                        </div>
+                        <div className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity bg-black/20 rounded-[1.5rem]">
+                          <Camera size={20} />
+                        </div>
                       </div>
-                      <div className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity bg-black/20 rounded-[1.5rem]">
-                        <Camera size={20} />
+                      <div>
+                        <h4 className="font-black text-on-surface">Profile Identity</h4>
+                        <p className="text-xs text-on-surface-variant font-medium mt-1">Recommended: 400x400px</p>
                       </div>
                     </div>
-                    <div>
-                      <h4 className="font-black text-on-surface">Profile Identity</h4>
-                      <p className="text-xs text-on-surface-variant font-medium mt-1">Recommended: 400x400px</p>
-                    </div>
-                  </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest ml-1">Full Name</label>
+                        <input 
+                          type="text" 
+                          value={profile.name}
+                          onChange={(e) => setProfile({...profile, name: e.target.value})}
+                          className="w-full px-6 py-4 bg-surface-container border-none rounded-2xl font-bold focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-inner"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest ml-1">University</label>
+                        <input 
+                          type="text" 
+                          value={profile.university}
+                          onChange={(e) => setProfile({...profile, university: e.target.value})}
+                          className="w-full px-6 py-4 bg-surface-container border-none rounded-2xl font-bold focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-inner"
+                        />
+                      </div>
+                    </div>
+
                     <div className="space-y-2">
-                      <label className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest ml-1">Full Name</label>
+                      <label className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest ml-1">Department</label>
                       <input 
                         type="text" 
-                        value={profile.name}
-                        onChange={(e) => setProfile({...profile, name: e.target.value})}
+                        value={profile.department}
+                        onChange={(e) => setProfile({...profile, department: e.target.value})}
                         className="w-full px-6 py-4 bg-surface-container border-none rounded-2xl font-bold focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-inner"
                       />
                     </div>
+
                     <div className="space-y-2">
-                      <label className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest ml-1">University</label>
-                      <input 
-                        type="text" 
-                        value={profile.university}
-                        onChange={(e) => setProfile({...profile, university: e.target.value})}
-                        className="w-full px-6 py-4 bg-surface-container border-none rounded-2xl font-bold focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-inner"
+                      <label className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest ml-1">Bio Summary</label>
+                      <textarea 
+                        rows={3}
+                        value={profile.bio}
+                        onChange={(e) => setProfile({...profile, bio: e.target.value})}
+                        className="w-full px-6 py-4 bg-surface-container border-none rounded-2xl font-medium text-sm leading-relaxed focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-inner"
                       />
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest ml-1">Department</label>
-                    <input 
-                      type="text" 
-                      value={profile.department}
-                      onChange={(e) => setProfile({...profile, department: e.target.value})}
-                      className="w-full px-6 py-4 bg-surface-container border-none rounded-2xl font-bold focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-inner"
-                    />
-                  </div>
+                  {/* Skills Management */}
+                  <div className="pt-8 border-t border-outline-variant/10">
+                    <div className="flex justify-between items-center mb-8">
+                      <div>
+                        <h4 className="text-xl font-black text-primary">Technical Arsenal</h4>
+                        <p className="text-on-surface-variant text-xs font-bold uppercase tracking-widest mt-1">Manage your expertise levels</p>
+                      </div>
+                      <button 
+                        onClick={addSkill}
+                        className="flex items-center gap-2 px-6 py-3 bg-surface-container hover:bg-primary hover:text-white rounded-xl font-black text-xs transition-all active:scale-95 shadow-sm"
+                      >
+                        <Plus size={16} />
+                        Add Skill
+                      </button>
+                    </div>
 
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest ml-1">Bio</label>
-                    <textarea 
-                      rows={4}
-                      value={profile.bio}
-                      onChange={(e) => setProfile({...profile, bio: e.target.value})}
-                      className="w-full px-6 py-4 bg-surface-container border-none rounded-2xl font-medium text-sm leading-relaxed focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-inner"
-                    />
+                    <div className="space-y-4">
+                      {skills.map((skill, idx) => (
+                        <div key={idx} className="flex flex-col md:flex-row items-center gap-6 p-6 bg-surface-container rounded-[1.5rem] group hover:bg-white hover:shadow-lg transition-all border border-transparent hover:border-outline-variant/10">
+                          <div className="flex-1 w-full md:w-auto">
+                            <label className="text-[8px] font-black text-on-surface-variant uppercase tracking-widest mb-2 block ml-1">Skill Name</label>
+                            <input 
+                              type="text" 
+                              value={skill.name}
+                              onChange={(e) => updateSkill(idx, 'name', e.target.value)}
+                              className="w-full px-4 py-3 bg-white/50 border-none rounded-xl font-bold text-sm focus:ring-2 focus:ring-primary focus:bg-white transition-all"
+                            />
+                          </div>
+                          <div className="w-full md:w-32">
+                            <label className="text-[8px] font-black text-on-surface-variant uppercase tracking-widest mb-2 block ml-1">Level / Endorse</label>
+                            <input 
+                              type="number" 
+                              value={skill.level}
+                              onChange={(e) => updateSkill(idx, 'level', parseInt(e.target.value))}
+                              className="w-full px-4 py-3 bg-white/50 border-none rounded-xl font-black text-sm text-center focus:ring-2 focus:ring-primary focus:bg-white transition-all"
+                            />
+                          </div>
+                          <div className="flex items-end pb-1">
+                            <button 
+                              onClick={() => removeSkill(idx)}
+                              className="p-3 text-on-surface-variant hover:text-error hover:bg-error/5 rounded-xl transition-all"
+                            >
+                              <Trash2 size={20} />
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                <div className="mt-12 flex justify-end gap-4">
+                <div className="mt-12 pt-8 border-t border-outline-variant/10 flex justify-end gap-6">
                   <button 
                     onClick={() => setIsEditing(false)}
-                    className="px-8 py-4 font-black text-on-surface-variant hover:text-primary transition-all text-sm uppercase tracking-widest"
+                    className="px-8 py-4 font-black text-on-surface-variant hover:text-primary transition-all text-xs uppercase tracking-[0.2em]"
                   >
                     Discard Changes
                   </button>
                   <button 
                     onClick={() => setIsEditing(false)}
-                    className="premium-gradient px-10 py-4 rounded-2xl text-white font-black text-sm uppercase tracking-widest shadow-xl shadow-primary/20 hover:scale-[1.05] active:scale-95 transition-all flex items-center gap-2"
+                    className="premium-gradient px-12 py-5 rounded-[1.25rem] text-white font-black text-xs uppercase tracking-[0.2em] shadow-2xl shadow-primary/20 hover:scale-[1.05] active:scale-95 transition-all flex items-center gap-3"
                   >
                     <Check size={18} />
                     Sync Profile
