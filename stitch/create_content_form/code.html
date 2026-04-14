@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Post Hackathon | Skill Connection</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "outline": "#767683",
+                    "on-primary-container": "#9aa5ff",
+                    "surface-variant": "#e0e3e6",
+                    "on-primary-fixed": "#000c62",
+                    "surface-bright": "#f7f9fc",
+                    "secondary-container": "#8feefc",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#dfe0ff",
+                    "on-surface": "#191c1e",
+                    "on-primary-fixed-variant": "#303c9a",
+                    "surface-container-highest": "#e0e3e6",
+                    "tertiary-fixed": "#68fadd",
+                    "secondary-fixed": "#92f1fe",
+                    "outline-variant": "#c6c5d4",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#2d3133",
+                    "surface-container": "#eceef1",
+                    "surface-container-high": "#e6e8eb",
+                    "surface-container-low": "#f2f4f7",
+                    "secondary": "#006972",
+                    "secondary-fixed-dim": "#75d5e2",
+                    "inverse-primary": "#bcc2ff",
+                    "inverse-on-surface": "#eff1f4",
+                    "surface-dim": "#d8dadd",
+                    "on-background": "#191c1e",
+                    "tertiary-container": "#00493e",
+                    "primary-container": "#283593",
+                    "surface-tint": "#4955b3",
+                    "on-tertiary-fixed": "#00201a",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#0b1a7d",
+                    "tertiary": "#003129",
+                    "surface": "#f7f9fc",
+                    "on-tertiary-fixed-variant": "#005145",
+                    "on-secondary-fixed-variant": "#004f56",
+                    "tertiary-fixed-dim": "#44ddc1",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#006d77",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#454652",
+                    "on-secondary-fixed": "#001f23",
+                    "background": "#f7f9fc",
+                    "primary-fixed-dim": "#bcc2ff",
+                    "on-tertiary-container": "#0bc1a7",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+        }
+        .editorial-shadow {
+            box-shadow: 0px 12px 32px rgba(25, 28, 30, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-indigo-950/80 backdrop-blur-xl shadow-[0px_12px_32px_rgba(25,28,30,0.04)]">
+<nav class="flex justify-between items-center px-6 h-16 max-w-full mx-auto">
+<div class="text-xl font-extrabold tracking-tighter text-indigo-900 dark:text-indigo-50 font-headline">
+                Skill Connection
+            </div>
+<div class="hidden md:flex items-center gap-8 font-headline tracking-tight font-semibold">
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-900 dark:hover:text-indigo-100 transition-colors" href="#">Dashboard</a>
+<a class="text-indigo-700 dark:text-teal-400 font-bold border-b-2 border-indigo-700 dark:border-teal-400 pb-1" href="#">Hackathons</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-900 dark:hover:text-indigo-100 transition-colors" href="#">Internships</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-100/50 dark:hover:bg-indigo-900/40 rounded-lg transition-all text-indigo-900 dark:text-indigo-50">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary-fixed overflow-hidden">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="portrait of a young professional smiling with soft lighting and clean minimalist office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC67s4xvU_Eh666MNNS0JX5oP4RVkjcq8vxzebCmlQTuDy8YBQB7T_qtqg_Uexkz-HTu2G6DuaVIia3ynYzyFqPRKKw6sBm8BIFlvQ86dLHmJzpvGBp_xR7OKfS_hv2EUJWOAD7Winbd8QZOUPiBkJ6Ixsuk3jgCRrIgLGkhSsNm-OvleEGf7D6QkHCAj8dMOKxmC8CQNq_TlsGuI_lhRzKgj79taCEZTfvf-4EE_WwrjkjWqTUGgHcuO2_XwLKjJjhhZ6DLbhlHAf7"/>
+</div>
+</div>
+</nav>
+</header>
+<main class="pt-24 pb-16 px-4 md:px-8 max-w-5xl mx-auto">
+<!-- Breadcrumb Rail -->
+<div class="flex items-center gap-2 mb-8 text-sm text-on-surface-variant font-medium">
+<span class="hover:text-primary cursor-pointer transition-colors">Hackathons</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-primary font-bold">Create New Opportunity</span>
+</div>
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- Left Side: Form Canvas -->
+<div class="flex-1 space-y-8">
+<!-- Header Section -->
+<section>
+<h1 class="text-4xl font-extrabold font-headline tracking-tight text-on-surface mb-2">Post an Opportunity</h1>
+<p class="text-on-surface-variant max-w-xl">Connect with the community by sharing hackathons, internships, or finding your next team members.</p>
+</section>
+<!-- Post Type Selection (Bento Style) -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<button class="group p-4 bg-surface-container-lowest rounded-xl border-2 border-primary editorial-shadow transition-all text-left">
+<span class="material-symbols-outlined text-primary mb-2 block" data-icon="emoji_events" data-weight="fill">emoji_events</span>
+<span class="text-sm font-bold font-headline text-primary block">Hackathon Event</span>
+</button>
+<button class="group p-4 bg-surface-container-low rounded-xl hover:bg-surface-container-lowest transition-all text-left">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary mb-2 block" data-icon="work">work</span>
+<span class="text-sm font-semibold font-headline text-on-surface-variant group-hover:text-on-surface block">Internship</span>
+</button>
+<button class="group p-4 bg-surface-container-low rounded-xl hover:bg-surface-container-lowest transition-all text-left">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary mb-2 block" data-icon="groups">groups</span>
+<span class="text-sm font-semibold font-headline text-on-surface-variant group-hover:text-on-surface block">Team Hunt</span>
+</button>
+<button class="group p-4 bg-surface-container-low rounded-xl hover:bg-surface-container-lowest transition-all text-left">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary mb-2 block" data-icon="chat">chat</span>
+<span class="text-sm font-semibold font-headline text-on-surface-variant group-hover:text-on-surface block">General Post</span>
+</button>
+</section>
+<!-- Form Fields -->
+<div class="bg-surface-container-low p-8 rounded-xl space-y-8 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary"></div>
+<!-- Title & Identity -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-bold font-headline uppercase tracking-wider text-on-surface-variant">Hackathon Title</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-0 focus:bg-surface-container-lowest transition-all" placeholder="e.g. AthenaHacks 2024" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold font-headline uppercase tracking-wider text-on-surface-variant">Host Organization</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-0 focus:bg-surface-container-lowest transition-all" placeholder="Digital Atheneum" type="text"/>
+</div>
+</div>
+<!-- Date, Location, Team -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-bold font-headline uppercase tracking-wider text-on-surface-variant">Event Date</label>
+<div class="relative">
+<input class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-0 focus:bg-surface-container-lowest transition-all appearance-none" type="date"/>
+<span class="material-symbols-outlined absolute right-4 top-4 text-on-surface-variant pointer-events-none" data-icon="calendar_today">calendar_today</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold font-headline uppercase tracking-wider text-on-surface-variant">Location</label>
+<div class="relative">
+<input class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-0 focus:bg-surface-container-lowest transition-all" placeholder="Hybrid / NYC" type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-4 text-on-surface-variant pointer-events-none" data-icon="location_on">location_on</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold font-headline uppercase tracking-wider text-on-surface-variant">Max Team Size</label>
+<div class="relative">
+<input class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-0 focus:bg-surface-container-lowest transition-all" placeholder="4" type="number"/>
+<span class="material-symbols-outlined absolute right-4 top-4 text-on-surface-variant pointer-events-none" data-icon="person_add">person_add</span>
+</div>
+</div>
+</div>
+<!-- Skills & Tags -->
+<div class="space-y-2">
+<label class="text-sm font-bold font-headline uppercase tracking-wider text-on-surface-variant">Required Skillsets</label>
+<div class="flex flex-wrap gap-2 p-2 bg-surface-container-high rounded-lg">
+<span class="inline-flex items-center gap-1 bg-secondary-container text-on-secondary-container py-1 px-3 rounded-full text-xs font-bold">
+                                Python <button class="material-symbols-outlined text-[14px]">close</button>
+</span>
+<span class="inline-flex items-center gap-1 bg-secondary-container text-on-secondary-container py-1 px-3 rounded-full text-xs font-bold">
+                                UI Design <button class="material-symbols-outlined text-[14px]">close</button>
+</span>
+<span class="inline-flex items-center gap-1 bg-secondary-container text-on-secondary-container py-1 px-3 rounded-full text-xs font-bold">
+                                React <button class="material-symbols-outlined text-[14px]">close</button>
+</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm flex-1 min-w-[100px]" placeholder="Add more..." type="text"/>
+</div>
+</div>
+<!-- Description (Rich Text Editor Mockup) -->
+<div class="space-y-2">
+<label class="text-sm font-bold font-headline uppercase tracking-wider text-on-surface-variant">Hackathon Description</label>
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm ring-1 ring-outline-variant/20">
+<div class="flex items-center gap-4 px-4 py-2 bg-surface-container-high border-b border-outline-variant/30">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary">format_bold</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary">format_italic</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary">format_list_bulleted</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary">link</button>
+<div class="h-4 w-px bg-outline-variant/40"></div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary">image</button>
+</div>
+<textarea class="w-full border-none focus:ring-0 p-4 bg-transparent text-on-surface leading-relaxed" placeholder="Tell us about the challenges, prizes, and rules..." rows="6"></textarea>
+</div>
+</div>
+<!-- Media Upload -->
+<div class="space-y-2">
+<label class="text-sm font-bold font-headline uppercase tracking-wider text-on-surface-variant">Cover Banner</label>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-8 flex flex-col items-center justify-center text-on-surface-variant bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer">
+<span class="material-symbols-outlined text-4xl mb-2 text-primary" data-icon="cloud_upload">cloud_upload</span>
+<p class="font-bold">Drop your image here</p>
+<p class="text-xs opacity-70 mt-1">PNG, JPG up to 10MB (Recommended 1200x630)</p>
+</div>
+</div>
+</div>
+<!-- Footer Buttons -->
+<div class="flex items-center justify-end gap-4 pt-4">
+<button class="px-8 py-3 font-headline font-bold text-primary hover:bg-primary-fixed/30 rounded-lg transition-all active:scale-95">
+                        Save Draft
+                    </button>
+<button class="px-8 py-3 font-headline font-bold text-on-primary bg-gradient-to-br from-primary to-primary-container rounded-lg shadow-lg hover:shadow-primary/20 transition-all active:scale-95 flex items-center gap-2">
+                        Publish Opportunity <span class="material-symbols-outlined text-[18px]">rocket_launch</span>
+</button>
+</div>
+</div>
+<!-- Right Side: Preview/Guidelines Rail -->
+<aside class="w-full lg:w-80 space-y-6">
+<!-- Guidelines Card -->
+<div class="bg-indigo-900 text-indigo-50 p-6 rounded-xl relative overflow-hidden">
+<div class="absolute -top-4 -right-4 w-24 h-24 bg-teal-400/20 rounded-full blur-2xl"></div>
+<h3 class="text-lg font-extrabold font-headline mb-4 relative z-10">Posting Tips</h3>
+<ul class="space-y-4 text-sm relative z-10">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-teal-400 text-sm" data-icon="check_circle">check_circle</span>
+<span>Be specific about technical requirements to attract the right talent.</span>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-teal-400 text-sm" data-icon="check_circle">check_circle</span>
+<span>Use a high-quality banner to increase click-through rates.</span>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-teal-400 text-sm" data-icon="check_circle">check_circle</span>
+<span>Mention the prizes or learning benefits clearly in the intro.</span>
+</li>
+</ul>
+</div>
+<!-- Preview Card -->
+<div class="bg-surface-container-highest p-6 rounded-xl border border-outline-variant/10">
+<h3 class="text-sm font-bold font-headline uppercase tracking-widest text-on-surface-variant mb-6">Live Preview</h3>
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm">
+<div class="h-32 bg-slate-200">
+<img alt="Hackathon Preview Banner" class="w-full h-full object-cover opacity-50" data-alt="abstract tech visualization with glowing indigo lines and soft geometric shapes representing digital connectivity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu6xeCZz-dbzQtxttYr5NFKlo86Eqvbbf-yVD7_JDOI35K3lNeOSBJGpJBdoTCTnGaXU4f1n_WOOG6BVlOZp6jA3q3Rv0O0ZgDXJ1lJ7P549nJPlPZpkQ-wsqBN1HQnVuBWI5E285xeHTixCD--e87v4ce0xbSWMC82B0wCkwwBzZ8oIvOfzvy9WnEZAoRRn0S1PXCklBRzQ8FF9Imfzkhk-M8QUaQnVlZIYvo8lQL9pG32q_LboU6h3kd3XHf1a0H8KI7XNHFVpzU"/>
+</div>
+<div class="p-4 space-y-2">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_#00c1a7]"></div>
+<span class="text-[10px] font-bold text-tertiary-container uppercase tracking-tighter">Hackathon Event</span>
+</div>
+<div class="h-4 bg-surface-container-high w-3/4 rounded animate-pulse"></div>
+<div class="h-3 bg-surface-container w-1/2 rounded animate-pulse"></div>
+<div class="flex gap-2 pt-2">
+<div class="h-5 w-12 bg-secondary-container rounded-full animate-pulse"></div>
+<div class="h-5 w-12 bg-secondary-container rounded-full animate-pulse"></div>
+</div>
+</div>
+</div>
+<p class="text-[10px] text-center text-on-surface-variant mt-4 italic">This is how your card will appear in the main feed.</p>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-6 mt-auto bg-slate-100 dark:bg-indigo-950 border-t border-slate-200/50 dark:border-indigo-900/30">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-6">
+<div class="font-['Manrope'] font-bold text-indigo-900 dark:text-indigo-50">
+                Skill Connection
+            </div>
+<div class="flex gap-6 font-['Inter'] text-sm tracking-normal text-slate-500 dark:text-slate-400">
+<a class="hover:text-indigo-700 dark:hover:text-teal-300 underline underline-offset-4 transition-all" href="#">Community</a>
+<a class="hover:text-indigo-700 dark:hover:text-teal-300 underline underline-offset-4 transition-all" href="#">Support</a>
+<a class="hover:text-indigo-700 dark:hover:text-teal-300 underline underline-offset-4 transition-all" href="#">Privacy</a>
+<a class="hover:text-indigo-700 dark:hover:text-teal-300 underline underline-offset-4 transition-all" href="#">Terms</a>
+</div>
+<div class="text-indigo-900 dark:text-indigo-200 font-['Inter'] text-sm">
+                © 2024 Skill Connection. Built for the Digital Atheneum.
+            </div>
+</div>
+</footer>
+</body></html>

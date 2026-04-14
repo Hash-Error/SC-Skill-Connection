@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "outline": "#767683",
+                    "on-primary-container": "#9aa5ff",
+                    "surface-variant": "#e0e3e6",
+                    "on-primary-fixed": "#000c62",
+                    "surface-bright": "#f7f9fc",
+                    "secondary-container": "#8feefc",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#dfe0ff",
+                    "on-surface": "#191c1e",
+                    "on-primary-fixed-variant": "#303c9a",
+                    "surface-container-highest": "#e0e3e6",
+                    "tertiary-fixed": "#68fadd",
+                    "secondary-fixed": "#92f1fe",
+                    "outline-variant": "#c6c5d4",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#2d3133",
+                    "surface-container": "#eceef1",
+                    "surface-container-high": "#e6e8eb",
+                    "surface-container-low": "#f2f4f7",
+                    "secondary": "#006972",
+                    "secondary-fixed-dim": "#75d5e2",
+                    "inverse-primary": "#bcc2ff",
+                    "inverse-on-surface": "#eff1f4",
+                    "surface-dim": "#d8dadd",
+                    "on-background": "#191c1e",
+                    "tertiary-container": "#00493e",
+                    "primary-container": "#283593",
+                    "surface-tint": "#4955b3",
+                    "on-tertiary-fixed": "#00201a",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#0b1a7d",
+                    "tertiary": "#003129",
+                    "surface": "#f7f9fc",
+                    "on-tertiary-fixed-variant": "#005145",
+                    "on-secondary-fixed-variant": "#004f56",
+                    "tertiary-fixed-dim": "#44ddc1",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#006d77",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#454652",
+                    "on-secondary-fixed": "#001f23",
+                    "background": "#f7f9fc",
+                    "primary-fixed-dim": "#bcc2ff",
+                    "on-tertiary-container": "#0bc1a7",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-indigo-950/80 backdrop-blur-xl shadow-[0px_12px_32px_rgba(25,28,30,0.04)]">
+<div class="flex justify-between items-center px-6 h-16 max-w-full mx-auto">
+<div class="text-xl font-extrabold tracking-tighter text-indigo-900 dark:text-indigo-50 font-['Manrope']">
+                Skill Connection
+            </div>
+<!-- Navigation Links - Web Only -->
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-indigo-700 dark:text-teal-400 font-bold border-b-2 border-indigo-700 dark:border-teal-400 pb-1 font-['Manrope'] tracking-tight" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-900 dark:hover:text-indigo-100 transition-colors font-['Manrope'] tracking-tight font-semibold" href="#">Hackathons</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-900 dark:hover:text-indigo-100 transition-colors font-['Manrope'] tracking-tight font-semibold" href="#">Internships</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-100/50 dark:hover:bg-indigo-900/40 rounded-lg transition-all text-indigo-900 dark:text-indigo-50">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<img alt="User Profile Avatar" class="w-8 h-8 rounded-full border border-outline-variant/20" data-alt="Close up portrait of a smiling young professional male in a clean studio environment with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVVb4TRg6UfmkbN62H_nrqLd-Zt1QZQJOjZWDNWKG2WQByk7DeXmwkW3EbcJPiWf6I0qJR5bra946SK7peBI2RBEbzhUnPPSgkuGmfC652jnu1llmLYtZLjqfdOdNHrEQyt6XSQYRsK_WE5aE7ogLqyZFom7hCu5sIyP_fqmM9hh-15KO-KSyUiG2ScUMgrmGpVvNcOWL2vgCsYuu0NIeGXJ8vFumGWcLQ3xHWkg00RR9-JR9X7rcewgbbLhFPksxCOQZ6dG4_DlM0"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-[870px] flex items-center justify-center overflow-hidden py-24 bg-gradient-to-br from-primary to-primary-container">
+<!-- Decorative Elements -->
+<div class="absolute inset-0 opacity-20" data-alt="abstract soft glowing teal and indigo radial gradients on a dark background" style="background-image: radial-gradient(circle at 20% 30%, #8feefc 0%, transparent 40%), radial-gradient(circle at 80% 70%, #68fadd 0%, transparent 40%);"></div>
+<div class="container mx-auto px-6 relative z-10 text-center">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-lowest/10 backdrop-blur-md text-secondary-fixed border border-secondary-fixed/20 mb-8">
+<span class="material-symbols-outlined text-sm" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-xs font-bold tracking-widest uppercase font-label">The Digital Atheneum Experience</span>
+</div>
+<h1 class="text-5xl md:text-8xl font-extrabold text-white leading-tight tracking-tighter mb-6">
+                    Connect. Build.<br/><span class="text-secondary-fixed">Innovate.</span>
+</h1>
+<p class="text-lg md:text-xl text-primary-fixed max-w-2xl mx-auto mb-10 font-body leading-relaxed">
+                    Bridging the gap between ambitious students and world-class opportunities. Discover elite hackathons, assemble dream teams, and accelerate your career.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+<button class="group px-8 py-4 bg-gradient-to-r from-secondary to-on-secondary-container text-white rounded-xl font-bold text-lg flex items-center gap-2 transition-all active:scale-95 shadow-xl hover:shadow-secondary/20">
+                        Get Started
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="px-8 py-4 bg-white/5 backdrop-blur-lg border border-white/20 text-white rounded-xl font-bold text-lg hover:bg-white/10 transition-all active:scale-95">
+                        Browse Hackathons
+                    </button>
+</div>
+<!-- Social Proof -->
+<div class="mt-20 flex flex-col items-center gap-4">
+<p class="text-primary-fixed/60 font-medium text-sm tracking-widest uppercase">Trusted by the best</p>
+<div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+<span class="text-white text-2xl font-black font-headline">Join 10,000+ students from 500+ colleges</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Skill Connection? Section (Bento-style layout) -->
+<section class="py-24 bg-surface px-6">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16 text-center max-w-3xl mx-auto">
+<h2 class="text-4xl font-extrabold text-on-surface mb-4 tracking-tight">The Future of Student Collaboration</h2>
+<p class="text-on-surface-variant text-lg">We provide the tools and network to transform your academic knowledge into real-world impact.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Card 1 -->
+<div class="md:col-span-8 group relative bg-surface-container-low rounded-3xl p-8 overflow-hidden transition-all hover:bg-surface-container-lowest hover:shadow-[0px_12px_32px_rgba(25,28,30,0.06)]">
+<div class="relative z-10 h-full flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 rounded-2xl bg-primary-fixed flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</div>
+<h3 class="text-3xl font-bold text-on-surface mb-3">Find Hackathons</h3>
+<p class="text-on-surface-variant max-w-md">Access a curated global directory of competitive events, from local university jams to international tech summits.</p>
+</div>
+<div class="mt-12 flex items-center text-primary font-bold group-hover:gap-4 transition-all">
+                                Explore directory <span class="material-symbols-outlined" data-icon="trending_flat">trending_flat</span>
+</div>
+</div>
+<img alt="Modern hackathon workspace" class="absolute top-0 right-0 h-full w-1/2 object-cover opacity-20 md:opacity-100 mix-blend-multiply transition-transform group-hover:scale-105" data-alt="Wide shot of several students working on laptops in a high-tech modern co-working space with large windows and neon accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuo_CjZaRpizGua9dUfCDm878NN_YwaEPzNsjm9_fsauuM9_oMsmp4qhKMseYHvOZwJz0eOhIdUFin5thD9sApMlX5A7oobU3hU7jEavPCR_eBy7xh2BIDBQpp3i6Xtj3kjxg7JgGClKChiWObHWuC8lANAEUL0l_hgW4nDr8tMVEGeuUx8BPBK3gcSEq6ljFfK9NEupL_IO2VbzrrFbNhHlpQj1t7w3GAatkAUZuS6YYrcHVPkj4rEtSgWZ_7d_8xYFOZXArgKgbE"/>
+</div>
+<!-- Card 2 -->
+<div class="md:col-span-4 bg-surface-container-low rounded-3xl p-8 transition-all hover:bg-surface-container-lowest hover:shadow-[0px_12px_32px_rgba(25,28,30,0.06)]">
+<div class="w-12 h-12 rounded-2xl bg-secondary-container flex items-center justify-center text-on-secondary-container mb-6">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+</div>
+<h3 class="text-2xl font-bold text-on-surface mb-3">Form Elite Teams</h3>
+<p class="text-on-surface-variant">Connect with specialists across engineering, design, and product to build balanced, winning squads.</p>
+</div>
+<!-- Card 3 -->
+<div class="md:col-span-4 bg-surface-container-low rounded-3xl p-8 transition-all hover:bg-surface-container-lowest hover:shadow-[0px_12px_32px_rgba(25,28,30,0.06)]">
+<div class="w-12 h-12 rounded-2xl bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed mb-6">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<h3 class="text-2xl font-bold text-on-surface mb-3">Land Internships</h3>
+<p class="text-on-surface-variant">Top companies monitor our leaderboard. Showcase your projects and get fast-tracked for recruitment.</p>
+</div>
+<!-- Card 4 (Decorative/Pulse) -->
+<div class="md:col-span-8 bg-primary-container rounded-3xl p-8 relative overflow-hidden flex items-center">
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-4">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-teal-400"></span>
+</span>
+<span class="text-teal-400 text-sm font-bold tracking-widest uppercase">Live Activity</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-2">324 Active Collaborations</h3>
+<p class="text-primary-fixed/80">Students are currently matching for the upcoming Winter Dev Summit.</p>
+</div>
+<div class="absolute -right-20 bottom-0 top-0 w-1/2 bg-gradient-to-l from-black/20 to-transparent"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Hackathons Section -->
+<section class="py-24 bg-surface-container-low px-6">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+<div>
+<h2 class="text-4xl font-extrabold text-on-surface mb-2 tracking-tight">Featured Hackathons</h2>
+<p class="text-on-surface-variant">Elite competitions starting this month.</p>
+</div>
+<a class="text-primary font-bold flex items-center gap-2 hover:underline" href="#">
+                        View All <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Hackathon Card 1 -->
+<div class="bg-surface-container-lowest rounded-3xl overflow-hidden transition-all hover:-translate-y-2 hover:shadow-[0px_20px_40px_rgba(25,28,30,0.08)]">
+<div class="h-48 relative">
+<img alt="Tech Event" class="w-full h-full object-cover" data-alt="Creative studio background with colorful lights and modern hardware blurred in focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDts1YvmjJHXTDZVIxGmJDYEM0bAsmwAgtTGxzqG41EM4FyK0cR9j7iXMFBq8nJBBv9TTPPEPuO7-fUrpXu1fZlOEll99sc19fjQi3j-XBnz2yv3HHh_mAJVOxJfleoGmbpDauo_RcVy1CfUly1PIVT7O1IqwUniSb2SDZcbPhLWH0t3jteDNOiH1CUa-f1Z0CI5DFksO46aULsHXWhtE8M8-f2ejf-v-wWncwCjFWld2clvhGVIG9K_d0TzAJw6sPFIbl9jeaHmCGH"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-primary">
+                                $50,000 Prize
+                            </div>
+</div>
+<div class="p-8">
+<div class="flex items-center gap-2 text-secondary font-bold text-xs uppercase tracking-widest mb-3">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>
+                                Oct 15 - 17, 2024
+                            </div>
+<h3 class="text-2xl font-bold text-on-surface mb-4">Neural Nexus AI Jam</h3>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm mb-6">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                                San Francisco / Hybrid
+                            </div>
+<div class="flex flex-wrap gap-2 pt-4 border-t border-outline-variant/20">
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-xs font-semibold">Python</span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-xs font-semibold">PyTorch</span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-xs font-semibold">LLMs</span>
+</div>
+</div>
+</div>
+<!-- Hackathon Card 2 -->
+<div class="bg-surface-container-lowest rounded-3xl overflow-hidden transition-all hover:-translate-y-2 hover:shadow-[0px_20px_40px_rgba(25,28,30,0.08)]">
+<div class="h-48 relative">
+<img alt="Code Editor" class="w-full h-full object-cover" data-alt="High contrast shot of a laptop screen displaying clean colorful code in a dark room with soft blue neon lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp61MJPz4Qqc5gZEjsPGmUavqQYTIb28q1DWUti6ZeX72Uxm54a6FaSSeR-cDKZs76Z46YokyRzYBujSY0kTW9XOdkTPjCe66X-4iR3gBy95VIjxXGA08HYrWfHKuVpmgHk2c_Xq3GQHBEuc7gd5GXCOiwzDObaxVcIl5qJAPsSEF39aYIk2UsLXIboHRN88JLsdosKEXUZkPpF8WzPscs6eHFpEeNL6Gn1nyI9kSogXXE8ve-v3gVcZDLbiibF8z_fuYySh0r_zSz"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-primary">
+                                Hiring Event
+                            </div>
+</div>
+<div class="p-8">
+<div class="flex items-center gap-2 text-secondary font-bold text-xs uppercase tracking-widest mb-3">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>
+                                Nov 02 - 04, 2024
+                            </div>
+<h3 class="text-2xl font-bold text-on-surface mb-4">Fullstack Fusion 2.0</h3>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm mb-6">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                                Remote
+                            </div>
+<div class="flex flex-wrap gap-2 pt-4 border-t border-outline-variant/20">
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-xs font-semibold">React</span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-xs font-semibold">Node.js</span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-xs font-semibold">PostgreSQL</span>
+</div>
+</div>
+</div>
+<!-- Hackathon Card 3 -->
+<div class="bg-surface-container-lowest rounded-3xl overflow-hidden transition-all hover:-translate-y-2 hover:shadow-[0px_20px_40px_rgba(25,28,30,0.08)]">
+<div class="h-48 relative">
+<img alt="Design Tools" class="w-full h-full object-cover" data-alt="Close up of a designer's desk with a high-end monitor showing UI design wireframes and a modern keyboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa0uAEVaZ06wY7tboyAiyhu3IDucDQ3TcFssIyGzGcCzdtq36TlLJBL4FbSbiZx9_9lr75OXNjVvxn8bpK07uWTxAYUaW7P0szVtQIKabrubvJAO6FJR5fbrms9qB8dEiN_v6uWY2qIVz9mXcKOD7fv1bR9eHVsqM65W6FUQV3SAGuqLoRV31mT17l9_yZaTeQ96mz2THou35kmr3fBlrJEuWxc0FuivBCv0xFzaB4nsL7zmqUXKgcY0eL8HZonuGnKgiZLR9X6Jzn"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-primary">
+                                Internship Grant
+                            </div>
+</div>
+<div class="p-8">
+<div class="flex items-center gap-2 text-secondary font-bold text-xs uppercase tracking-widest mb-3">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>
+                                Dec 12 - 14, 2024
+                            </div>
+<h3 class="text-2xl font-bold text-on-surface mb-4">Pixel Perfect UX Challenge</h3>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm mb-6">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                                New York City
+                            </div>
+<div class="flex flex-wrap gap-2 pt-4 border-t border-outline-variant/20">
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-xs font-semibold">Figma</span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-xs font-semibold">User Research</span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-xs font-semibold">Prototyping</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trending Skills Section -->
+<section class="py-24 bg-surface px-6 overflow-hidden">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-3xl font-extrabold text-on-surface mb-10 tracking-tight">Trending in the Community</h2>
+<div class="flex flex-wrap justify-center gap-3 md:gap-4">
+<!-- Skill Chips -->
+<span class="px-6 py-3 rounded-full bg-secondary-container text-on-secondary-container font-bold text-sm transition-all hover:scale-110 cursor-default">React</span>
+<span class="px-6 py-3 rounded-full bg-surface-container-high text-on-surface-variant font-medium text-sm transition-all hover:scale-110 cursor-default">Python</span>
+<span class="px-6 py-3 rounded-full bg-primary-fixed text-primary font-bold text-sm transition-all hover:scale-110 cursor-default">AI/ML</span>
+<span class="px-6 py-3 rounded-full bg-surface-container-high text-on-surface-variant font-medium text-sm transition-all hover:scale-110 cursor-default">Figma</span>
+<span class="px-6 py-3 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-bold text-sm transition-all hover:scale-110 cursor-default">TypeScript</span>
+<span class="px-6 py-3 rounded-full bg-surface-container-high text-on-surface-variant font-medium text-sm transition-all hover:scale-110 cursor-default">AWS</span>
+<span class="px-6 py-3 rounded-full bg-secondary-container/40 text-on-secondary-container font-bold text-sm transition-all hover:scale-110 cursor-default">Rust</span>
+<span class="px-6 py-3 rounded-full bg-surface-container-high text-on-surface-variant font-medium text-sm transition-all hover:scale-110 cursor-default">Docker</span>
+<span class="px-6 py-3 rounded-full bg-primary-fixed/50 text-primary font-bold text-sm transition-all hover:scale-110 cursor-default">Generative AI</span>
+<span class="px-6 py-3 rounded-full bg-surface-container-high text-on-surface-variant font-medium text-sm transition-all hover:scale-110 cursor-default">Kubernetes</span>
+<span class="px-6 py-3 rounded-full bg-tertiary-fixed/40 text-on-tertiary-fixed font-bold text-sm transition-all hover:scale-110 cursor-default">Solidity</span>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="py-24 px-6">
+<div class="max-w-5xl mx-auto rounded-[3rem] bg-indigo-900 overflow-hidden relative p-12 md:p-20 text-center">
+<div class="absolute inset-0 opacity-10" data-alt="subtle white grid pattern on deep indigo background" style="background-image: radial-gradient(circle at 50% 50%, white 1px, transparent 1px); background-size: 40px 40px;"></div>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-5xl font-black text-white mb-6">Ready to build something legendary?</h2>
+<p class="text-indigo-200 text-lg mb-10 max-w-xl mx-auto">Join the nexus where skill meets opportunity. Your next big break is just one connection away.</p>
+<button class="px-12 py-5 bg-white text-indigo-900 rounded-2xl font-black text-xl hover:bg-teal-300 transition-colors active:scale-95">
+                        Join Skill Connection Now
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-6 mt-auto bg-slate-100 dark:bg-indigo-950 border-t border-slate-200/50 dark:border-indigo-900/30">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-6">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-['Manrope'] font-bold text-indigo-900 dark:text-indigo-50 text-lg">Skill Connection</span>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-['Inter']">© 2024 Skill Connection. Built for the Digital Atheneum.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-700 dark:hover:text-teal-300 underline underline-offset-4 transition-all text-sm font-medium" href="#">Community</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-700 dark:hover:text-teal-300 underline underline-offset-4 transition-all text-sm font-medium" href="#">Support</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-700 dark:hover:text-teal-300 underline underline-offset-4 transition-all text-sm font-medium" href="#">Privacy</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-700 dark:hover:text-teal-300 underline underline-offset-4 transition-all text-sm font-medium" href="#">Terms</a>
+</div>
+</div>
+</footer>
+</body></html>

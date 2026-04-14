@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "outline": "#767683",
+                    "on-primary-container": "#9aa5ff",
+                    "surface-variant": "#e0e3e6",
+                    "on-primary-fixed": "#000c62",
+                    "surface-bright": "#f7f9fc",
+                    "secondary-container": "#8feefc",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#dfe0ff",
+                    "on-surface": "#191c1e",
+                    "on-primary-fixed-variant": "#303c9a",
+                    "surface-container-highest": "#e0e3e6",
+                    "tertiary-fixed": "#68fadd",
+                    "secondary-fixed": "#92f1fe",
+                    "outline-variant": "#c6c5d4",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#2d3133",
+                    "surface-container": "#eceef1",
+                    "surface-container-high": "#e6e8eb",
+                    "surface-container-low": "#f2f4f7",
+                    "secondary": "#006972",
+                    "secondary-fixed-dim": "#75d5e2",
+                    "inverse-primary": "#bcc2ff",
+                    "inverse-on-surface": "#eff1f4",
+                    "surface-dim": "#d8dadd",
+                    "on-background": "#191c1e",
+                    "tertiary-container": "#00493e",
+                    "primary-container": "#283593",
+                    "surface-tint": "#4955b3",
+                    "on-tertiary-fixed": "#00201a",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#0b1a7d",
+                    "tertiary": "#003129",
+                    "surface": "#f7f9fc",
+                    "on-tertiary-fixed-variant": "#005145",
+                    "on-secondary-fixed-variant": "#004f56",
+                    "tertiary-fixed-dim": "#44ddc1",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#006d77",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#454652",
+                    "on-secondary-fixed": "#001f23",
+                    "background": "#f7f9fc",
+                    "primary-fixed-dim": "#bcc2ff",
+                    "on-tertiary-container": "#0bc1a7",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .nexus-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nexus-card:hover {
+            background-color: #ffffff;
+            box-shadow: 0px 12px 32px rgba(25, 28, 30, 0.06);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Top Navigation Shell -->
+<header class="bg-slate-50/80 backdrop-blur-xl fixed top-0 w-full z-50 shadow-[0px_12px_32px_rgba(25,28,30,0.04)]">
+<nav class="flex justify-between items-center px-6 h-16 max-w-full mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold tracking-tighter text-indigo-900 font-headline">Skill Connection</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-slate-600 hover:text-indigo-900 transition-colors font-headline font-semibold" href="#">Dashboard</a>
+<a class="text-slate-600 hover:text-indigo-900 transition-colors font-headline font-semibold" href="#">Hackathons</a>
+<a class="text-slate-600 hover:text-indigo-900 transition-colors font-headline font-semibold" href="#">Internships</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-100/50 rounded-lg transition-all text-indigo-900">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border-2 border-indigo-700">
+<img alt="User Profile Avatar" class="object-cover" data-alt="close-up portrait of a young professional man with a friendly smile, clean-shaven, in a professional studio setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs5sLOTNTxtBhih_7NmosHRuLyubC1h4PhtCaRfDejEtR_U3K1p_M7jm_3ejW-1tSBF5bwHENnzkdh44RnfpjJxaCWK6maFDlzXHK0Ph4g3o1Bjb8xb_C-5PbQPqTAWCnqRTj3ON-adlpIVELnt0wKPbI5DsQ8XUgBAO_DZKOmC2PM_etVoFPDTg1NbV-ILF-EdEKr0Z10GgfC4YbE0glq0J6bpCwvCGiWqTaTNXhc3nlYNC2oREyNpDaGW1ZtunfQml5pzXatvz25"/>
+</div>
+</div>
+</nav>
+</header>
+<main class="pt-16 min-h-screen">
+<!-- Profile Banner & Header -->
+<section class="relative">
+<div class="h-64 w-full bg-gradient-to-r from-primary to-primary-container relative overflow-hidden">
+<img alt="Banner" class="w-full h-full object-cover opacity-40" data-alt="modern glass architectural detail with blue sky reflections and abstract geometric patterns, clean academic aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBYOEW-h15Ec_5gehZWbyKdSd7K2msLB9itsam7DGalQIExa9sXNtRfNutB52nn-aIgHieR_CnxKBPkqBBeIK7r-Z_q_qsWers4czoIzmFwiclTsf_PPKaPpNLw0F_CtJTDNW76CDHR1m9rX75vEMUu2t8Tgaso2poN1aamiW2JnyfFAa76LKB61qAr1zkX983Sv6s29Mgh3QV4vHC8aEHAo2Rkr6OktD_726bscy69wOMiCKHS2xpQkeeILCea2KumfC-gXeuqIUY"/>
+<div class="absolute inset-0 bg-indigo-900/20 backdrop-blur-sm"></div>
+</div>
+<div class="max-w-7xl mx-auto px-6">
+<div class="relative -mt-24 mb-12 flex flex-col md:flex-row items-end gap-6">
+<div class="h-48 w-48 rounded-xl border-[6px] border-surface bg-surface-container-highest overflow-hidden shadow-xl">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="close-up portrait of a young professional man with a friendly smile, clean-shaven, in a professional studio setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY-LR6pAnFW0MOHHibgUvKyGRgQvlNBCzfo62FfEf3mzaGwIB_Tqvki_FXTlZ-rQN62ZaZ8--EWux5ed1n4qxbCeDbWh8ZjY7CZ25DNLwkNPMgEDFBSE5JVaE1eHraPbXX2H2it6M9yMUi4OsBM36uPJq_AwFplVfgN6d2MVpoLwWQ23g7FlFYKO5OYdmVQQOWHah1J26eywG-bA--vgQBy2dz-CsZjBaAePtPauisut4j72L_zCzTqBR5wgYkwcmdqBwyhz-uEsv9"/>
+</div>
+<div class="flex-grow pb-4">
+<h1 class="text-4xl font-extrabold font-headline text-on-surface tracking-tight">Julian Thorne</h1>
+<p class="text-lg font-medium text-on-surface-variant mb-1">Stanford University</p>
+<p class="text-sm text-outline font-medium tracking-wide">Dept. of Computer Science &amp; Artificial Intelligence</p>
+</div>
+<div class="pb-4">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-3 rounded-lg font-semibold flex items-center gap-2 hover:scale-[0.98] transition-transform shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+                            Edit Profile
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Profile Content Grid -->
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8 pb-20">
+<!-- Left Column: Sidebar Details -->
+<div class="md:col-span-4 space-y-8">
+<!-- Bio Section -->
+<div class="bg-surface-container-low rounded-xl p-8 nexus-card">
+<h3 class="text-xl font-bold font-headline text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+                        Bio
+                    </h3>
+<p class="text-on-surface-variant leading-relaxed">
+                        Passionate Full-Stack Developer specializing in distributed systems and AI integration. Currently focused on building scalable collaboration tools for the Digital Atheneum. 3x Hackathon winner and tech community mentor.
+                    </p>
+</div>
+<!-- Contact Sidebar -->
+<div class="bg-surface-container-low rounded-xl p-8 nexus-card">
+<h3 class="text-xl font-bold font-headline text-primary mb-6">Contact &amp; Networks</h3>
+<div class="space-y-4">
+<a class="flex items-center gap-4 text-on-surface-variant hover:text-primary transition-colors group" href="#">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center group-hover:bg-primary-fixed">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</div>
+<span class="font-medium">j.thorne@stanford.edu</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:text-primary transition-colors group" href="#">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center group-hover:bg-primary-fixed">
+<span class="material-symbols-outlined" data-icon="link">link</span>
+</div>
+<span class="font-medium">linkedin.com/in/jthorne</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:text-primary transition-colors group" href="#">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center group-hover:bg-primary-fixed">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+</div>
+<span class="font-medium">github.com/jthorne-dev</span>
+</a>
+</div>
+</div>
+<!-- My Teams -->
+<div class="bg-surface-container-low rounded-xl p-8 nexus-card">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-xl font-bold font-headline text-primary">My Teams</h3>
+<span class="material-symbols-outlined text-secondary" data-icon="groups">groups</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-highest transition-colors cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold">AN</div>
+<div>
+<p class="font-bold text-sm">Athena Nexus</p>
+<p class="text-xs text-outline">Lead Architect</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-highest transition-colors cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed font-bold">QR</div>
+<div>
+<p class="font-bold text-sm">Quantum Reality</p>
+<p class="text-xs text-outline">Frontend Dev</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Main Experience & Skills -->
+<div class="md:col-span-8 space-y-8">
+<!-- Skills Tag Cloud -->
+<div class="bg-surface-container-low rounded-xl p-8 nexus-card">
+<h3 class="text-xl font-bold font-headline text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+                        Technical Arsenal
+                    </h3>
+<div class="flex flex-wrap gap-3">
+<div class="flex items-center gap-2 px-4 py-2 bg-primary-fixed text-on-primary-fixed rounded-full font-medium">
+<span>React</span>
+<span class="w-5 h-5 bg-primary/20 rounded-full text-[10px] flex items-center justify-center">12</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-secondary-container text-on-secondary-container rounded-full font-medium">
+<span>Python</span>
+<span class="w-5 h-5 bg-secondary/20 rounded-full text-[10px] flex items-center justify-center">8</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-tertiary-fixed text-on-tertiary-fixed rounded-full font-medium">
+<span>TypeScript</span>
+<span class="w-5 h-5 bg-tertiary/20 rounded-full text-[10px] flex items-center justify-center">15</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container-highest text-on-surface-variant rounded-full font-medium">
+<span>Rust</span>
+<span class="w-5 h-5 bg-outline/20 rounded-full text-[10px] flex items-center justify-center">4</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container-highest text-on-surface-variant rounded-full font-medium">
+<span>Node.js</span>
+<span class="w-5 h-5 bg-outline/20 rounded-full text-[10px] flex items-center justify-center">9</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container-highest text-on-surface-variant rounded-full font-medium">
+<span>TensorFlow</span>
+<span class="w-5 h-5 bg-outline/20 rounded-full text-[10px] flex items-center justify-center">6</span>
+</div>
+</div>
+</div>
+<!-- Experience & Projects Section -->
+<div class="bg-surface-container-low rounded-xl p-8 nexus-card">
+<h3 class="text-xl font-bold font-headline text-primary mb-8 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="military_tech">military_tech</span>
+                        Journey &amp; Milestones
+                    </h3>
+<div class="space-y-12">
+<!-- Internship -->
+<div class="relative pl-8 border-l-2 border-primary-fixed">
+<div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary ring-4 ring-primary-fixed"></div>
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-secondary mb-2 block">Internship</span>
+<h4 class="text-2xl font-bold font-headline text-on-surface">Software Engineering Intern</h4>
+<p class="text-lg font-medium text-primary">Google Cloud</p>
+<p class="mt-4 text-on-surface-variant leading-relaxed">
+                                        Worked with the Kubernetes team to optimize container orchestration for multi-region clusters. Developed an internal CLI tool reducing deployment time by 15%.
+                                    </p>
+</div>
+<span class="text-sm font-semibold text-outline whitespace-nowrap bg-surface-container-high px-3 py-1 rounded-lg">June - Sept 2023</span>
+</div>
+</div>
+<!-- Hackathon -->
+<div class="relative pl-8 border-l-2 border-primary-fixed">
+<div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-secondary ring-4 ring-secondary-container"></div>
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-secondary mb-2 block">Hackathon Winner</span>
+<h4 class="text-2xl font-bold font-headline text-on-surface">EthGlobal Paris 2023</h4>
+<p class="text-lg font-medium text-primary">Project: SecurePulse</p>
+<p class="mt-4 text-on-surface-variant leading-relaxed">
+                                        Built a decentralized health record management system using zero-knowledge proofs. Awarded "Best Use of Privacy Protocol" and Overall 2nd Place.
+                                    </p>
+</div>
+<span class="text-sm font-semibold text-outline whitespace-nowrap bg-surface-container-high px-3 py-1 rounded-lg">July 2023</span>
+</div>
+</div>
+<!-- Internship 2 -->
+<div class="relative pl-8 border-l-2 border-primary-fixed">
+<div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary-fixed ring-4 ring-surface"></div>
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-secondary mb-2 block">Internship</span>
+<h4 class="text-2xl font-bold font-headline text-on-surface">Data Science Fellow</h4>
+<p class="text-lg font-medium text-primary">NVIDIA</p>
+<p class="mt-4 text-on-surface-variant leading-relaxed">
+                                        Collaborated on deep learning model optimization for edge devices. Published findings in the internal engineering journal.
+                                    </p>
+</div>
+<span class="text-sm font-semibold text-outline whitespace-nowrap bg-surface-container-high px-3 py-1 rounded-lg">2022</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-slate-100 dark:bg-indigo-950 w-full py-12 px-6 mt-auto border-t border-slate-200/50">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-6">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-headline font-bold text-indigo-900 text-lg">Skill Connection</span>
+<p class="font-body text-sm tracking-normal text-slate-500">© 2024 Skill Connection. Built for the Digital Atheneum.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-slate-500 hover:text-indigo-700 underline underline-offset-4 transition-all text-sm" href="#">Community</a>
+<a class="text-slate-500 hover:text-indigo-700 underline underline-offset-4 transition-all text-sm" href="#">Support</a>
+<a class="text-slate-500 hover:text-indigo-700 underline underline-offset-4 transition-all text-sm" href="#">Privacy</a>
+<a class="text-slate-500 hover:text-indigo-700 underline underline-offset-4 transition-all text-sm" href="#">Terms</a>
+</div>
+</div>
+</footer>
+</body></html>

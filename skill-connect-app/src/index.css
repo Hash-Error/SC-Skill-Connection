@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary: #0b1a7d;
+    --primary-container: #283593;
+    --on-primary: #ffffff;
+    --secondary: #006972;
+    --secondary-container: #8feefc;
+    --on-secondary-container: #006d77;
+    --tertiary: #003129;
+    --tertiary-container: #00493e;
+    --surface: #f7f9fc;
+    --surface-container-low: #f2f4f7;
+    --surface-container: #eceef1;
+    --surface-container-high: #e6e8eb;
+    --surface-container-highest: #e0e3e6;
+    --surface-container-lowest: #ffffff;
+    --on-surface: #191c1e;
+    --on-surface-variant: #454652;
+    --outline-variant: #c6c5d4;
+    --error: #ba1a1a;
+    
+    --headline-font: 'Manrope', sans-serif;
+    --body-font: 'Inter', sans-serif;
+  }
+
+  body {
+    background-color: var(--surface);
+    color: var(--on-surface);
+    font-family: var(--body-font);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--headline-font);
+    font-weight: 800;
+  }
+}
+
+@theme {
+  --color-primary: var(--primary);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary: var(--on-primary);
+  --color-secondary: var(--secondary);
+  --color-secondary-container: var(--secondary-container);
+  --color-on-secondary-container: var(--on-secondary-container);
+  --color-tertiary: var(--tertiary);
+  --color-tertiary-container: var(--tertiary-container);
+  --color-surface: var(--surface);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-outline-variant: var(--outline-variant);
+
+  --font-headline: var(--headline-font);
+  --font-body: var(--body-font);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.diffuse-shadow {
+  box-shadow: 0px 12px 32px rgba(25, 28, 30, 0.06);
+}
+
+.premium-gradient {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, var(--primary), var(--secondary));
+}

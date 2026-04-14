@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Skill Connection | Search &amp; Discovery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "outline": "#767683",
+                        "on-primary-container": "#9aa5ff",
+                        "surface-variant": "#e0e3e6",
+                        "on-primary-fixed": "#000c62",
+                        "surface-bright": "#f7f9fc",
+                        "secondary-container": "#8feefc",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#dfe0ff",
+                        "on-surface": "#191c1e",
+                        "on-primary-fixed-variant": "#303c9a",
+                        "surface-container-highest": "#e0e3e6",
+                        "tertiary-fixed": "#68fadd",
+                        "secondary-fixed": "#92f1fe",
+                        "outline-variant": "#c6c5d4",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#2d3133",
+                        "surface-container": "#eceef1",
+                        "surface-container-high": "#e6e8eb",
+                        "surface-container-low": "#f2f4f7",
+                        "secondary": "#006972",
+                        "secondary-fixed-dim": "#75d5e2",
+                        "inverse-primary": "#bcc2ff",
+                        "inverse-on-surface": "#eff1f4",
+                        "surface-dim": "#d8dadd",
+                        "on-background": "#191c1e",
+                        "tertiary-container": "#00493e",
+                        "primary-container": "#283593",
+                        "surface-tint": "#4955b3",
+                        "on-tertiary-fixed": "#00201a",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#0b1a7d",
+                        "tertiary": "#003129",
+                        "surface": "#f7f9fc",
+                        "on-tertiary-fixed-variant": "#005145",
+                        "on-secondary-fixed-variant": "#004f56",
+                        "tertiary-fixed-dim": "#44ddc1",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#006d77",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#454652",
+                        "on-secondary-fixed": "#001f23",
+                        "background": "#f7f9fc",
+                        "primary-fixed-dim": "#bcc2ff",
+                        "on-tertiary-container": "#0bc1a7",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+            color: #191c1e;
+        }
+        h1, h2, h3, .brand-font {
+            font-family: 'Manrope', sans-serif;
+        }
+        .nexus-card {
+            transition: all 0.3s ease;
+        }
+        .nexus-card:hover {
+            transform: translateY(-4px);
+            background-color: #ffffff;
+            box-shadow: 0px 12px 32px rgba(25, 28, 30, 0.06);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 backdrop-blur-xl flex justify-between items-center px-6 h-16 max-w-full mx-auto shadow-[0px_12px_32px_rgba(25,28,30,0.04)]">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold tracking-tighter text-indigo-900">Skill Connection</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-slate-600 hover:text-indigo-900 transition-colors font-['Manrope'] tracking-tight font-semibold" href="#">Dashboard</a>
+<a class="text-slate-600 hover:text-indigo-900 transition-colors font-['Manrope'] tracking-tight font-semibold" href="#">Hackathons</a>
+<a class="text-slate-600 hover:text-indigo-900 transition-colors font-['Manrope'] tracking-tight font-semibold" href="#">Internships</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<input class="bg-surface-container-high rounded-full px-4 py-1.5 text-sm focus:ring-2 focus:ring-primary outline-none w-64 border-none" placeholder="Search people..." type="text"/>
+</div>
+<button class="p-2 hover:bg-slate-100/50 rounded-lg transition-all text-indigo-900">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<img alt="User Profile Avatar" class="w-8 h-8 rounded-full object-cover" data-alt="professional headshot of a young adult with a friendly expression in a brightly lit modern office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGFBCrJdwF6L4ZSVnOGRjdop29kcZ1MykMYap4iGAUJ7aZ_C5wu3i5QDfOqPzImsxuPUNldHOrCNYOBLXv8je3so9EpmGkyZn4hhAXQC6FqmLBVedWAKFJj6BQWZcVrTmWkkFph8E5hj2oapfPxi7tdSDwsNHQezskB0NS7Af0eqJznHbt2mqlIUemo1SlSivIdWEl0Z3GKBz994fmaP0q0cMWoAPpyuq84eEk4--FreE5scmRMJE96QTaUU983Fjxtw8MiUofcOFL"/>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-grow pt-24 pb-12 px-6 max-w-7xl mx-auto w-full">
+<!-- Header Section with Mode Toggle -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div>
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface mb-2">Discover Talent</h1>
+<p class="text-on-surface-variant max-w-md">Connect with students and professionals across the global Digital Atheneum network.</p>
+</div>
+<!-- Custom Toggle -->
+<div class="bg-surface-container-low p-1.5 rounded-xl flex items-center shadow-sm">
+<button class="px-6 py-2 rounded-lg text-sm font-bold transition-all bg-surface-container-lowest text-primary shadow-sm">
+                    Global Mode
+                </button>
+<button class="px-6 py-2 rounded-lg text-sm font-medium transition-all text-on-surface-variant hover:text-on-surface">
+                    Same College Mode
+                </button>
+</div>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Sidebar Filters -->
+<aside class="lg:col-span-3 space-y-8">
+<div class="bg-surface-container-low p-6 rounded-xl space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="font-headline font-bold text-lg text-on-surface">Advanced Filters</h2>
+<button class="text-primary text-xs font-semibold hover:underline">Reset</button>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Location</label>
+<select class="w-full bg-surface-container-lowest border-none rounded-lg text-sm py-2.5 px-3 focus:ring-2 focus:ring-primary">
+<option>United States</option>
+<option>United Kingdom</option>
+<option>India</option>
+<option>Germany</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">College</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg text-sm py-2.5 px-3 focus:ring-2 focus:ring-primary" placeholder="Search institution..." type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Department</label>
+<select class="w-full bg-surface-container-lowest border-none rounded-lg text-sm py-2.5 px-3 focus:ring-2 focus:ring-primary">
+<option>Computer Science</option>
+<option>Design</option>
+<option>Economics</option>
+<option>Biotechnology</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Skills</label>
+<div class="flex flex-wrap gap-2">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">
+                                    React <span class="material-symbols-outlined text-[14px]">close</span>
+</span>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">
+                                    Python <span class="material-symbols-outlined text-[14px]">close</span>
+</span>
+<button class="border border-dashed border-outline-variant text-on-surface-variant px-3 py-1 rounded-full text-xs font-medium hover:border-primary hover:text-primary transition-colors">
+                                    + Add Skill
+                                </button>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Graduation Year</label>
+<div class="grid grid-cols-2 gap-2">
+<input class="w-full bg-surface-container-lowest border-none rounded-lg text-sm py-2.5 px-3 focus:ring-2 focus:ring-primary" placeholder="From" type="number"/>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg text-sm py-2.5 px-3 focus:ring-2 focus:ring-primary" placeholder="To" type="number"/>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Results Grid -->
+<section class="lg:col-span-9">
+<div class="flex items-center justify-between mb-6">
+<p class="text-sm text-on-surface-variant">Showing <span class="font-bold text-on-surface">124</span> results</p>
+<div class="flex items-center gap-2 text-sm text-on-surface-variant">
+<span>Sort by:</span>
+<button class="font-bold text-on-surface flex items-center gap-1">
+                            Relevance <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- User Card 1 -->
+<div class="nexus-card bg-surface-container-low rounded-xl p-6 flex flex-col items-center text-center">
+<div class="relative mb-4">
+<img alt="Julianne Moore" class="w-24 h-24 rounded-full object-cover border-4 border-surface-container-lowest shadow-md" data-alt="portrait of a young female software developer smiling in a clean architectural setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9b9fxEOkrJFG3bMqW4jWUXz7jcjbTcZ5Ks65_6EMvfMEbU9hQsG8_xeUGyplST6aWEc54GT4O4_g9JKZUJhGlUyJABJd3scJgu3uy7-6oe9TE3cHgDjiBprtDeoQVabi0Hr5PvpYN6AF47E5MzLUM9JEHMrBMBiU7Nh7zIKA5uuV-7gLfrdTRPk-p1pbTHDdzWq5haHFJLSCmQTDyds9UvOwYPPKoYWQrbNKdbKX5zX5WFhe4MqKQIzRIt2_Tnq2_RxXcSffLZa2C"/>
+<span class="absolute bottom-1 right-1 w-4 h-4 bg-tertiary-fixed-dim border-2 border-surface-container-low rounded-full shadow-[0_0_8px_rgba(68,221,193,0.6)]"></span>
+</div>
+<h3 class="text-xl font-bold text-on-surface">Julianne Moore</h3>
+<p class="text-sm text-primary font-medium mb-4">Stanford University</p>
+<div class="flex flex-wrap justify-center gap-2 mb-8">
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">React</span>
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">UI Design</span>
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">Node.js</span>
+</div>
+<div class="w-full grid grid-cols-2 gap-3 mt-auto">
+<button class="py-2.5 rounded-lg text-sm font-bold border border-outline-variant text-on-surface hover:bg-surface-container-high transition-all">View Profile</button>
+<button class="py-2.5 rounded-lg text-sm font-bold bg-gradient-to-br from-primary to-primary-container text-white shadow-lg hover:opacity-90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">mail</span> Message
+                            </button>
+</div>
+</div>
+<!-- User Card 2 -->
+<div class="nexus-card bg-surface-container-low rounded-xl p-6 flex flex-col items-center text-center">
+<div class="relative mb-4">
+<img alt="Marcus Chen" class="w-24 h-24 rounded-full object-cover border-4 border-surface-container-lowest shadow-md" data-alt="headshot of a confident young man wearing glasses with a professional look in a library environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArSPyHmp-Gg6jxRO3wjiR3C8-mAkv3DKd9X-IT50USVNZ0ryUpGpl5XCDxlYLDrA3NZDMD2RnOk7XVT-tIyRk7Q8TDwWKZyZM_6d6OrwP8hHr00DyU10WAtxB4aUvnp0s6H6QgXfk4FLGJx7e2h0568QgUH4aoAr_1FV4b6uKh7kIMNxHxgigiG7w5P0IoC2p7rEFh10QEzRJtUsys_Ee6_BL7D9OSm1TwFcNUFQ-u1uk4Cee-_fp3sMWeoz1Mi6jWVJRNqGxcvopI"/>
+</div>
+<h3 class="text-xl font-bold text-on-surface">Marcus Chen</h3>
+<p class="text-sm text-primary font-medium mb-4">MIT</p>
+<div class="flex flex-wrap justify-center gap-2 mb-8">
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">Python</span>
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">ML</span>
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">Keras</span>
+</div>
+<div class="w-full grid grid-cols-2 gap-3 mt-auto">
+<button class="py-2.5 rounded-lg text-sm font-bold border border-outline-variant text-on-surface hover:bg-surface-container-high transition-all">View Profile</button>
+<button class="py-2.5 rounded-lg text-sm font-bold bg-gradient-to-br from-primary to-primary-container text-white shadow-lg hover:opacity-90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">mail</span> Message
+                            </button>
+</div>
+</div>
+<!-- User Card 3 -->
+<div class="nexus-card bg-surface-container-low rounded-xl p-6 flex flex-col items-center text-center">
+<div class="relative mb-4">
+<img alt="Elena Rodriguez" class="w-24 h-24 rounded-full object-cover border-4 border-surface-container-lowest shadow-md" data-alt="portrait of a creative professional woman with a warm smile in a modern studio with colorful art in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3yquy3XQ8ea9c5VbwR5lZm63YTJqFKTnpHTjg5kGzmFIDI2pngUr1Xl0c8ql0njzwLxtI9MZ98hlLRL_BEojWVOC5gzgX1HaPSyOIOkLVjoBIbiWkFEQyx_KP1U6f6hH9horSuyFxOnQyowJJ8_bQXlxOy8q0Vdad3xwu8K0rLsUANPM-vTZxNBcAKlgNUGv-jpDc76b2Tzu_W9lGPZ5NEE_CkKJHJEHJW3uef2TXOeS8lLlxomz3LQz3Pd1kxBtFfafmGU7yKnul"/>
+<span class="absolute bottom-1 right-1 w-4 h-4 bg-tertiary-fixed-dim border-2 border-surface-container-low rounded-full shadow-[0_0_8px_rgba(68,221,193,0.6)]"></span>
+</div>
+<h3 class="text-xl font-bold text-on-surface">Elena Rodriguez</h3>
+<p class="text-sm text-primary font-medium mb-4">UCLA</p>
+<div class="flex flex-wrap justify-center gap-2 mb-8">
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">Figma</span>
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">Motion</span>
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">Illustration</span>
+</div>
+<div class="w-full grid grid-cols-2 gap-3 mt-auto">
+<button class="py-2.5 rounded-lg text-sm font-bold border border-outline-variant text-on-surface hover:bg-surface-container-high transition-all">View Profile</button>
+<button class="py-2.5 rounded-lg text-sm font-bold bg-gradient-to-br from-primary to-primary-container text-white shadow-lg hover:opacity-90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">mail</span> Message
+                            </button>
+</div>
+</div>
+<!-- User Card 4 -->
+<div class="nexus-card bg-surface-container-low rounded-xl p-6 flex flex-col items-center text-center">
+<div class="relative mb-4">
+<img alt="David Kim" class="w-24 h-24 rounded-full object-cover border-4 border-surface-container-lowest shadow-md" data-alt="professional portrait of a young man in a business casual outfit with an urban office window background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMOgHlX1CxP58XDxrxFdctYVN_uuUFjx8i1Q01D7_M8TikUZpCu3YI86B7KGL2xKKO_x79N7S-jMs5y66eMHoCrtZwGCUfgy4ccKITDIaIE7ZbjweZcMrQtIrqk0g2ryYdk0_jvxkbSvSswKvI5dxyo91UTdUKPLQHPVB_6g-5Pz8ICCSmkN_DreZkOpE6SJ94vuBvGTFT-AjzEEGt9H2Lcw0iM234BEzXI_OZKoVGWO7gSjiasr-3JmYkWukc3FvmZfQHjnRDpmT8"/>
+</div>
+<h3 class="text-xl font-bold text-on-surface">David Kim</h3>
+<p class="text-sm text-primary font-medium mb-4">Cornell University</p>
+<div class="flex flex-wrap justify-center gap-2 mb-8">
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">SQL</span>
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">Finance</span>
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">R</span>
+</div>
+<div class="w-full grid grid-cols-2 gap-3 mt-auto">
+<button class="py-2.5 rounded-lg text-sm font-bold border border-outline-variant text-on-surface hover:bg-surface-container-high transition-all">View Profile</button>
+<button class="py-2.5 rounded-lg text-sm font-bold bg-gradient-to-br from-primary to-primary-container text-white shadow-lg hover:opacity-90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">mail</span> Message
+                            </button>
+</div>
+</div>
+<!-- User Card 5 -->
+<div class="nexus-card bg-surface-container-low rounded-xl p-6 flex flex-col items-center text-center">
+<div class="relative mb-4">
+<img alt="Sarah Jenkins" class="w-24 h-24 rounded-full object-cover border-4 border-surface-container-lowest shadow-md" data-alt="close up headshot of a smiling young woman with bright eyes in a bright white airy minimalist studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2JwZrMpctj4CHq0GqEhPbPjl9bl5zyBeNCBBj7rv6C3Z81dwOyXTbRSVX2qMeTLOhVBnp0RQ0Ufzy-ppTc9SOkxVzj5K539QmQfwtdUlZU5rwRwsA_aO0j82R74f80K8bgMgx6wxqvAc61cPhSrsDD8Jtd5nd5Byp2DcqFe1z3_KmAc56hvkQSYitW_6z3mAD6wHo7lD8Fi1DVQfOTXVXqhUuQHvOhHjcm1UCajSNbRH6-serseRVwB_MyS2aztCJ-jBobhmnpbZ-"/>
+<span class="absolute bottom-1 right-1 w-4 h-4 bg-tertiary-fixed-dim border-2 border-surface-container-low rounded-full shadow-[0_0_8px_rgba(68,221,193,0.6)]"></span>
+</div>
+<h3 class="text-xl font-bold text-on-surface">Sarah Jenkins</h3>
+<p class="text-sm text-primary font-medium mb-4">Columbia University</p>
+<div class="flex flex-wrap justify-center gap-2 mb-8">
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">Go</span>
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">Docker</span>
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">AWS</span>
+</div>
+<div class="w-full grid grid-cols-2 gap-3 mt-auto">
+<button class="py-2.5 rounded-lg text-sm font-bold border border-outline-variant text-on-surface hover:bg-surface-container-high transition-all">View Profile</button>
+<button class="py-2.5 rounded-lg text-sm font-bold bg-gradient-to-br from-primary to-primary-container text-white shadow-lg hover:opacity-90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">mail</span> Message
+                            </button>
+</div>
+</div>
+<!-- User Card 6 -->
+<div class="nexus-card bg-surface-container-low rounded-xl p-6 flex flex-col items-center text-center">
+<div class="relative mb-4">
+<img alt="Liam O'Connell" class="w-24 h-24 rounded-full object-cover border-4 border-surface-container-lowest shadow-md" data-alt="professional portrait of a creative young man with a casual style in a collaborative co-working space background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASn2OVgtE0M6-F3g6NZ5l33jEVH3767Gtx4bO_PjqYBQn1ay-KNZOPfFWeRKnG4fBmIZTlNLXazVpCbAqeNxh2lDDztZQSmCZXFUw1-OakelncPlIizg5zvd8iD5pXv4Hm4vLFfzCVxcjWjd1xBOnsKpHDaBol89mu9Kjwrnb0iFmtNTBVlSmj830GOJLzJpyZyl5FAiMnYpf8islCHhtgfZzQnME86JQzJWjAbM9otiOeozCOYUYZ0FE1Qzw4jLlCsKNxxJL5_-Ly"/>
+</div>
+<h3 class="text-xl font-bold text-on-surface">Liam O'Connell</h3>
+<p class="text-sm text-primary font-medium mb-4">Harvard University</p>
+<div class="flex flex-wrap justify-center gap-2 mb-8">
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">Copywriting</span>
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">SEO</span>
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider">Strategy</span>
+</div>
+<div class="w-full grid grid-cols-2 gap-3 mt-auto">
+<button class="py-2.5 rounded-lg text-sm font-bold border border-outline-variant text-on-surface hover:bg-surface-container-high transition-all">View Profile</button>
+<button class="py-2.5 rounded-lg text-sm font-bold bg-gradient-to-br from-primary to-primary-container text-white shadow-lg hover:opacity-90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">mail</span> Message
+                            </button>
+</div>
+</div>
+</div>
+<!-- Empty State Example (Hidden by default, shown for logic) -->
+<div class="hidden flex-col items-center justify-center py-24 text-center">
+<div class="w-20 h-20 bg-surface-container-high rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-4xl text-outline">search_off</span>
+</div>
+<h4 class="text-2xl font-bold text-on-surface mb-2">No matches found</h4>
+<p class="text-on-surface-variant max-w-sm">We couldn't find anyone matching your exact filters. Try broadening your search terms or adjusting the filters.</p>
+<button class="mt-8 text-primary font-bold hover:underline">Clear all filters</button>
+</div>
+<!-- Pagination -->
+<div class="mt-16 flex justify-center gap-2">
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center bg-primary text-white font-bold">1</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high">2</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high">3</button>
+<span class="px-2 self-center text-on-surface-variant">...</span>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high">12</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-6 mt-auto bg-slate-100 border-t border-slate-200/50">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-6">
+<div class="flex flex-col gap-2">
+<span class="font-['Manrope'] font-bold text-indigo-900">Skill Connection</span>
+<p class="font-['Inter'] text-sm tracking-normal text-slate-500">© 2024 Skill Connection. Built for the Digital Atheneum.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-slate-500 hover:text-indigo-700 underline underline-offset-4 transition-all text-sm" href="#">Community</a>
+<a class="text-slate-500 hover:text-indigo-700 underline underline-offset-4 transition-all text-sm" href="#">Support</a>
+<a class="text-slate-500 hover:text-indigo-700 underline underline-offset-4 transition-all text-sm" href="#">Privacy</a>
+<a class="text-slate-500 hover:text-indigo-700 underline underline-offset-4 transition-all text-sm" href="#">Terms</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Internships | Skill Connection</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "outline": "#767683",
+                        "on-primary-container": "#9aa5ff",
+                        "surface-variant": "#e0e3e6",
+                        "on-primary-fixed": "#000c62",
+                        "surface-bright": "#f7f9fc",
+                        "secondary-container": "#8feefc",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#dfe0ff",
+                        "on-surface": "#191c1e",
+                        "on-primary-fixed-variant": "#303c9a",
+                        "surface-container-highest": "#e0e3e6",
+                        "tertiary-fixed": "#68fadd",
+                        "secondary-fixed": "#92f1fe",
+                        "outline-variant": "#c6c5d4",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#2d3133",
+                        "surface-container": "#eceef1",
+                        "surface-container-high": "#e6e8eb",
+                        "surface-container-low": "#f2f4f7",
+                        "secondary": "#006972",
+                        "secondary-fixed-dim": "#75d5e2",
+                        "inverse-primary": "#bcc2ff",
+                        "inverse-on-surface": "#eff1f4",
+                        "surface-dim": "#d8dadd",
+                        "on-background": "#191c1e",
+                        "tertiary-container": "#00493e",
+                        "primary-container": "#283593",
+                        "surface-tint": "#4955b3",
+                        "on-tertiary-fixed": "#00201a",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#0b1a7d",
+                        "tertiary": "#003129",
+                        "surface": "#f7f9fc",
+                        "on-tertiary-fixed-variant": "#005145",
+                        "on-secondary-fixed-variant": "#004f56",
+                        "tertiary-fixed-dim": "#44ddc1",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#006d77",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#454652",
+                        "on-secondary-fixed": "#001f23",
+                        "background": "#f7f9fc",
+                        "primary-fixed-dim": "#bcc2ff",
+                        "on-tertiary-container": "#0bc1a7",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component JSON Mapping) -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-indigo-950/80 backdrop-blur-xl shadow-[0px_12px_32px_rgba(25,28,30,0.04)]">
+<nav class="flex justify-between items-center px-6 h-16 max-w-full mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold tracking-tighter text-indigo-900 dark:text-indigo-50">Skill Connection</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-900 dark:hover:text-indigo-100 transition-colors font-['Manrope'] tracking-tight font-semibold" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-900 dark:hover:text-indigo-100 transition-colors font-['Manrope'] tracking-tight font-semibold" href="#">Hackathons</a>
+<a class="text-indigo-700 dark:text-teal-400 font-bold border-b-2 border-indigo-700 dark:border-teal-400 pb-1 font-['Manrope'] tracking-tight" href="#">Internships</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<input class="bg-surface-container-high border-none rounded-xl px-4 py-2 w-64 focus:ring-2 focus:ring-surface-tint text-sm transition-all outline-none" placeholder="Search roles or companies..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2 text-outline text-lg" data-icon="search">search</span>
+</div>
+<button class="p-2 hover:bg-slate-100/50 dark:hover:bg-indigo-900/40 rounded-lg transition-all text-indigo-900 dark:text-indigo-50">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest ring-2 ring-primary-fixed">
+<img alt="User Profile Avatar" data-alt="professional headshot of a smiling young male professional with neat hair and a clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEqJwbK0G4BuB_xtxl5MvgrD0J1m7oEliv8gqbxhJMRvWWync7RkpjwL5b5k4mIq4JFkeY25NTG9ifBJ1TPFcsRkJccNle_OcMiDoptLyqJQ0UK4yXN9u73-9kfEYVyL6PybH4qR7Lr1Na_hlWypIhixtLYU-z6GfydUHsM3TYwsf-R_Kmans9iuXmLTWLBOztSt97FsOrOug-6RxMbtozPZEjXuUtv-dfTPADOf_MA-dUsvadOiRW8Nj02jkQdPrrupK6AYJwPJAn"/>
+</div>
+</div>
+</nav>
+</header>
+<main class="mt-24 px-6 max-w-7xl mx-auto w-full flex-grow mb-20">
+<!-- Hero & Action Section -->
+<section class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="max-w-2xl">
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-primary mb-4">Discover Your Next Chapter</h1>
+<p class="text-lg text-on-surface-variant leading-relaxed">Connect with top-tier startups and global tech giants looking for fresh talent like you. The Digital Atheneum’s gateway to professional excellence.</p>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-xl font-bold flex items-center gap-2 shadow-lg hover:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                Post an Internship
+            </button>
+</section>
+<!-- Search & Filter Bar -->
+<div class="bg-surface-container-low p-6 rounded-3xl mb-12 shadow-[0px_4px_24px_rgba(0,0,0,0.02)]">
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+<!-- Role Search -->
+<div class="relative">
+<label class="block text-xs font-bold text-outline mb-2 uppercase tracking-widest">Role or Company</label>
+<div class="flex items-center bg-surface-container-lowest rounded-xl px-4 py-3 ring-1 ring-outline-variant/20 focus-within:ring-surface-tint focus-within:ring-2 transition-all">
+<span class="material-symbols-outlined text-outline mr-2" data-icon="work">work</span>
+<input class="bg-transparent border-none w-full p-0 text-on-surface focus:ring-0" placeholder="Software Engineer..." type="text"/>
+</div>
+</div>
+<!-- Job Type -->
+<div>
+<label class="block text-xs font-bold text-outline mb-2 uppercase tracking-widest">Internship Type</label>
+<div class="flex items-center bg-surface-container-lowest rounded-xl px-4 py-3 ring-1 ring-outline-variant/20">
+<select class="bg-transparent border-none w-full p-0 text-on-surface focus:ring-0">
+<option>All Types</option>
+<option>Full-time</option>
+<option>Internship</option>
+<option>Part-time</option>
+</select>
+</div>
+</div>
+<!-- Stipend Range -->
+<div>
+<label class="block text-xs font-bold text-outline mb-2 uppercase tracking-widest">Stipend Range</label>
+<div class="flex items-center bg-surface-container-lowest rounded-xl px-4 py-3 ring-1 ring-outline-variant/20">
+<select class="bg-transparent border-none w-full p-0 text-on-surface focus:ring-0">
+<option>Any Stipend</option>
+<option>$500 - $1,000</option>
+<option>$1,000 - $3,000</option>
+<option>$3,000+</option>
+</select>
+</div>
+</div>
+<!-- Skills -->
+<div>
+<label class="block text-xs font-bold text-outline mb-2 uppercase tracking-widest">Required Skills</label>
+<div class="flex items-center bg-surface-container-lowest rounded-xl px-4 py-3 ring-1 ring-outline-variant/20">
+<span class="material-symbols-outlined text-outline mr-2" data-icon="psychology">psychology</span>
+<input class="bg-transparent border-none w-full p-0 text-on-surface focus:ring-0" placeholder="React, Python..." type="text"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Content Layout: Main Board -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+<!-- Job Card 1 -->
+<div class="group bg-surface-container-low hover:bg-surface-container-lowest p-8 rounded-3xl transition-all duration-300 shadow-sm hover:shadow-[0px_12px_32px_rgba(25,28,30,0.06)] flex flex-col h-full">
+<div class="flex justify-between items-start mb-6">
+<div class="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center p-2 border border-outline-variant/10">
+<img alt="Lumina Tech Logo" data-alt="minimalist modern tech logo of a geometric stylized prism in deep blue tones on a clean white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6ioW7o_AGyvnYEYp3b9Qe_lGbzMOFEruUM9k5_XyAIIm-3PUSqBY8IoQVnA5yaos9_eKOgC35A5bzh7WIXnYal3CUUY0ZcCPLEfRzHaW0It7wN9qfG9ErYassz8_d1eTsUEHc98H7RJqJHS9xCp4U63_oog9H47GSCZn2YlfyRBlBQSw-5tkFHpnsq30oB9Tpa8y6UpGBLt9PrlAMxBDaPXFVfwCrF4HX4TbKm2nskB99C7C9HJMCi5_YOjyPDamW9sRmloCKbFnq"/>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold tracking-tight">Active</span>
+</div>
+<div class="mb-4">
+<h3 class="text-xl font-extrabold text-on-surface mb-1 group-hover:text-primary transition-colors">UX Research Intern</h3>
+<p class="text-on-surface-variant font-medium">Lumina Technologies</p>
+</div>
+<div class="flex items-center gap-2 text-outline text-sm mb-6">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                    Remote, USA
+                </div>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-lg text-xs font-medium">Figma</span>
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-lg text-xs font-medium">User Interviews</span>
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-lg text-xs font-medium">+2</span>
+</div>
+<div class="mt-auto flex items-center justify-between border-t border-outline-variant/10 pt-6">
+<div>
+<p class="text-[10px] uppercase font-bold text-outline tracking-wider">Stipend</p>
+<p class="text-lg font-bold text-primary">$2,500<span class="text-xs text-outline font-medium">/mo</span></p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-xl text-sm font-bold hover:bg-primary-container transition-colors">Apply</button>
+</div>
+</div>
+<!-- Job Card 2 -->
+<div class="group bg-surface-container-low hover:bg-surface-container-lowest p-8 rounded-3xl transition-all duration-300 shadow-sm hover:shadow-[0px_12px_32px_rgba(25,28,30,0.06)] flex flex-col h-full">
+<div class="flex justify-between items-start mb-6">
+<div class="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center p-2 border border-outline-variant/10">
+<img alt="GreenSeed Logo" data-alt="vibrant eco-friendly startup logo featuring a stylized green sprout inside a circular geometric frame on a white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADucbIhs93t3vtRZ-38iEslSO-iRlDKTHX5GsAnHp39t_5W2p38Lxv5VPGULeY_kO7GhZrpj3B0vdRAQWDZI5it7kcJTrfkBaAoOCMGHOiK2LKsw58Dl_R5To4Cp3RYb94D51mHAEGltk-A58Mazc6uXBRtS5nth5x2wqgVBw1DRjz1rV5HsSZ3styrEzYw3vz2gRN7whpisw2AS4jcN1BJKscmqVpeaWBgVJMk5Fhxp9AVir0UW7iqSTkvPfFjwNSfMF5gYCWkAkQ"/>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold tracking-tight">Active</span>
+</div>
+<div class="mb-4">
+<h3 class="text-xl font-extrabold text-on-surface mb-1 group-hover:text-primary transition-colors">Full-Stack Intern</h3>
+<p class="text-on-surface-variant font-medium">GreenSeed Ventures</p>
+</div>
+<div class="flex items-center gap-2 text-outline text-sm mb-6">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                    San Francisco, CA
+                </div>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-lg text-xs font-medium">Next.js</span>
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-lg text-xs font-medium">Tailwind</span>
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-lg text-xs font-medium">Node</span>
+</div>
+<div class="mt-auto flex items-center justify-between border-t border-outline-variant/10 pt-6">
+<div>
+<p class="text-[10px] uppercase font-bold text-outline tracking-wider">Stipend</p>
+<p class="text-lg font-bold text-primary">$4,000<span class="text-xs text-outline font-medium">/mo</span></p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-xl text-sm font-bold hover:bg-primary-container transition-colors">Apply</button>
+</div>
+</div>
+<!-- Job Card 3 -->
+<div class="group bg-surface-container-low hover:bg-surface-container-lowest p-8 rounded-3xl transition-all duration-300 shadow-sm hover:shadow-[0px_12px_32px_rgba(25,28,30,0.06)] flex flex-col h-full">
+<div class="flex justify-between items-start mb-6">
+<div class="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center p-2 border border-outline-variant/10">
+<img alt="NovaCloud Logo" data-alt="clean corporate logo for a cloud computing company using an abstract cloud shape with sleek gradients in indigo and teal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc8oNVSD02JV3TpXXsqTza8b13eOlBVGJlgeVenY6OjJZreMKHXXRnS7cXaXIGulyRh5aXFg9D1wFK9hdBLCuYGWXuuSYnoMHMVCat8Q0AvTTvayCmFnKLnQQAMMWLOsIUlZ7_USTg8AGnbUjOQ-Ae0qq8JecFGjURXEz2sRKgaUEBFLTgPMFdYB9xrmlLKn5aJdBk-z5mo38ioEJ3aQQotcwoKNTTpnqurFCDjmBthFasNhrIzLUHaPMkvTICkdUeYYPqwC_e4h_J"/>
+</div>
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full text-xs font-bold tracking-tight">Closing Soon</span>
+</div>
+<div class="mb-4">
+<h3 class="text-xl font-extrabold text-on-surface mb-1 group-hover:text-primary transition-colors">ML Operations Intern</h3>
+<p class="text-on-surface-variant font-medium">NovaCloud Systems</p>
+</div>
+<div class="flex items-center gap-2 text-outline text-sm mb-6">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                    Austin, TX
+                </div>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-lg text-xs font-medium">PyTorch</span>
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-lg text-xs font-medium">AWS</span>
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-lg text-xs font-medium">Kubernetes</span>
+</div>
+<div class="mt-auto flex items-center justify-between border-t border-outline-variant/10 pt-6">
+<div>
+<p class="text-[10px] uppercase font-bold text-outline tracking-wider">Stipend</p>
+<p class="text-lg font-bold text-primary">$3,500<span class="text-xs text-outline font-medium">/mo</span></p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-xl text-sm font-bold hover:bg-primary-container transition-colors">Apply</button>
+</div>
+</div>
+<!-- Job Card 4 -->
+<div class="group bg-surface-container-low hover:bg-surface-container-lowest p-8 rounded-3xl transition-all duration-300 shadow-sm hover:shadow-[0px_12px_32px_rgba(25,28,30,0.06)] flex flex-col h-full">
+<div class="flex justify-between items-start mb-6">
+<div class="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center p-2 border border-outline-variant/10">
+<img alt="Nexus AI Logo" data-alt="sharp innovative tech logo featuring an interconnected neural network pattern in deep charcoal and indigo tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOiPp6xKhvHxxwnO6KU0mXt4323ZwRCCr1ecWnxK5KnDu-ShKypaWh-t5hhcAuTpGBLnC-E_F6OQNI9ePa6FQOGEazC_Yplr0YcVS_l3b2wcV2tsGkVxrRBNro0laeQxjE1z--Fm5OoAX1QYJRe_8CLZOMfcD-hUborhN8UFViKjz9CeHWq_av9H_5Dlun6UuFsHqb6WQ9FOF-dvcGMR3CpyvVEaOseaGwr-Vtxsfk1G-SlAke0_rGsLyTQIyMfMXhgwjLhGMn7is-"/>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold tracking-tight">Active</span>
+</div>
+<div class="mb-4">
+<h3 class="text-xl font-extrabold text-on-surface mb-1 group-hover:text-primary transition-colors">Content Strategy Intern</h3>
+<p class="text-on-surface-variant font-medium">Nexus AI</p>
+</div>
+<div class="flex items-center gap-2 text-outline text-sm mb-6">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                    London, UK
+                </div>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-lg text-xs font-medium">SEO</span>
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-lg text-xs font-medium">Analytics</span>
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-lg text-xs font-medium">Copywriting</span>
+</div>
+<div class="mt-auto flex items-center justify-between border-t border-outline-variant/10 pt-6">
+<div>
+<p class="text-[10px] uppercase font-bold text-outline tracking-wider">Stipend</p>
+<p class="text-lg font-bold text-primary">$2,800<span class="text-xs text-outline font-medium">/mo</span></p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-xl text-sm font-bold hover:bg-primary-container transition-colors">Apply</button>
+</div>
+</div>
+<!-- Job Card 5 -->
+<div class="group bg-surface-container-low hover:bg-surface-container-lowest p-8 rounded-3xl transition-all duration-300 shadow-sm hover:shadow-[0px_12px_32px_rgba(25,28,30,0.06)] flex flex-col h-full border-2 border-dashed border-outline-variant/30 justify-center items-center text-center p-10 cursor-pointer">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<h3 class="text-xl font-extrabold text-on-surface mb-2">Hire Your Next Talent</h3>
+<p class="text-on-surface-variant text-sm mb-6 max-w-[200px]">Post your internship opening and reach thousands of skilled candidates.</p>
+<button class="text-primary font-bold border-b-2 border-primary pb-1 group-hover:border-b-4 transition-all">Start Recruiting</button>
+</div>
+</div>
+<!-- Pagination (Implicit Design System need) -->
+<div class="mt-16 flex items-center justify-center gap-2">
+<button class="w-10 h-10 rounded-xl flex items-center justify-center bg-surface-container-lowest text-on-surface-variant border border-outline-variant/20 hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-xl flex items-center justify-center bg-primary text-on-primary font-bold">1</button>
+<button class="w-10 h-10 rounded-xl flex items-center justify-center bg-surface-container-lowest text-on-surface-variant border border-outline-variant/20 hover:bg-surface-container hover:text-on-surface transition-all font-bold">2</button>
+<button class="w-10 h-10 rounded-xl flex items-center justify-center bg-surface-container-lowest text-on-surface-variant border border-outline-variant/20 hover:bg-surface-container hover:text-on-surface transition-all font-bold">3</button>
+<button class="w-10 h-10 rounded-xl flex items-center justify-center bg-surface-container-lowest text-on-surface-variant border border-outline-variant/20 hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</main>
+<!-- Footer (Shared Component JSON Mapping) -->
+<footer class="bg-slate-100 dark:bg-indigo-950 w-full py-12 px-6 mt-auto border-t border-slate-200/50 dark:border-indigo-900/30">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-6">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-['Manrope'] font-bold text-indigo-900 dark:text-indigo-50">Skill Connection</span>
+<p class="text-slate-500 dark:text-slate-400 font-['Inter'] text-sm tracking-normal">© 2024 Skill Connection. Built for the Digital Atheneum.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-700 dark:hover:text-teal-300 underline underline-offset-4 transition-all transition-opacity duration-200 hover:opacity-80" href="#">Community</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-700 dark:hover:text-teal-300 underline underline-offset-4 transition-all transition-opacity duration-200 hover:opacity-80" href="#">Support</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-700 dark:hover:text-teal-300 underline underline-offset-4 transition-all transition-opacity duration-200 hover:opacity-80" href="#">Privacy</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-700 dark:hover:text-teal-300 underline underline-offset-4 transition-all transition-opacity duration-200 hover:opacity-80" href="#">Terms</a>
+</div>
+</div>
+</footer>
+</body></html>

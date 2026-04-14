@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Skill Connection - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "outline": "#767683",
+                    "on-primary-container": "#9aa5ff",
+                    "surface-variant": "#e0e3e6",
+                    "on-primary-fixed": "#000c62",
+                    "surface-bright": "#f7f9fc",
+                    "secondary-container": "#8feefc",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#dfe0ff",
+                    "on-surface": "#191c1e",
+                    "on-primary-fixed-variant": "#303c9a",
+                    "surface-container-highest": "#e0e3e6",
+                    "tertiary-fixed": "#68fadd",
+                    "secondary-fixed": "#92f1fe",
+                    "outline-variant": "#c6c5d4",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#2d3133",
+                    "surface-container": "#eceef1",
+                    "surface-container-high": "#e6e8eb",
+                    "surface-container-low": "#f2f4f7",
+                    "secondary": "#006972",
+                    "secondary-fixed-dim": "#75d5e2",
+                    "inverse-primary": "#bcc2ff",
+                    "inverse-on-surface": "#eff1f4",
+                    "surface-dim": "#d8dadd",
+                    "on-background": "#191c1e",
+                    "tertiary-container": "#00493e",
+                    "primary-container": "#283593",
+                    "surface-tint": "#4955b3",
+                    "on-tertiary-fixed": "#00201a",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#0b1a7d",
+                    "tertiary": "#003129",
+                    "surface": "#f7f9fc",
+                    "on-tertiary-fixed-variant": "#005145",
+                    "on-secondary-fixed-variant": "#004f56",
+                    "tertiary-fixed-dim": "#44ddc1",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#006d77",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#454652",
+                    "on-secondary-fixed": "#001f23",
+                    "background": "#f7f9fc",
+                    "primary-fixed-dim": "#bcc2ff",
+                    "on-tertiary-container": "#0bc1a7",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-nav { backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-indigo-950/80 backdrop-blur-xl shadow-[0px_12px_32px_rgba(25,28,30,0.04)]">
+<div class="flex justify-between items-center px-6 h-16 max-w-full mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold tracking-tighter text-indigo-900 dark:text-indigo-50 font-['Manrope']">Skill Connection</span>
+<nav class="hidden md:flex items-center gap-6 font-['Manrope'] tracking-tight font-semibold">
+<a class="text-indigo-700 dark:text-teal-400 font-bold border-b-2 border-indigo-700 dark:border-teal-400 pb-1" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-900 dark:hover:text-indigo-100 transition-colors" href="#">Hackathons</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-900 dark:hover:text-indigo-100 transition-colors" href="#">Internships</a>
+</nav>
+</div>
+<div class="flex items-center gap-4 flex-1 max-w-xl mx-8">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="w-full bg-surface-container-high border-none rounded-xl py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" placeholder="Search the feed for skills, posts, or people..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-600 hover:bg-slate-100/50 rounded-lg transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-indigo-100 border-2 border-white shadow-sm overflow-hidden">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="Close-up portrait of a professional young man with a friendly expression in a bright studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp2tLApuxXRQ9uoZ1IXdjvil7NnSnOe4rJhn7vteYusECGXZaDG369AX-Q098kLBJct_cgSRCj25-AoTkw1NZc4os6pGhg9v50Wf6NkL0rzK_Vsnt1XGGMBnXB8KO4ve7s0ng_qV5fKV6v_yBFevParr0h9_lkyDkWBzLoefMaKbIVMe36yvl9XXKXh0RRX65B8A-jeFZYHcQPqAV_q_sYi-qdZ3wNoPPMI2tq5JPKcCt1lSHn53iJf2WzyF3FCeL3W6_IvAibibZ6"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-20 flex-1 max-w-7xl mx-auto w-full px-6 flex gap-8">
+<!-- Left Sidebar Navigation -->
+<aside class="hidden lg:flex flex-col w-64 gap-6 sticky top-24 h-fit">
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-lg font-semibold transition-all" href="#">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dynamic_feed</span>
+<span class="text-sm">Feed</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-sm">My Teams</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">assignment_turned_in</span>
+<span class="text-sm">My Applications</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="text-sm">Saved Posts</span>
+</a>
+</div>
+<!-- Profile Summary Card -->
+<div class="bg-primary rounded-xl p-6 text-on-primary shadow-lg relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary-container/20 rounded-full blur-2xl"></div>
+<h3 class="font-headline font-bold text-lg mb-1">Alex Chen</h3>
+<p class="text-xs text-primary-fixed opacity-90 mb-4">Full-stack Developer @ MIT</p>
+<div class="flex gap-2 mb-4">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] px-2 py-0.5 rounded-full font-bold">REACT</span>
+<span class="bg-secondary-container text-on-secondary-container text-[10px] px-2 py-0.5 rounded-full font-bold">PYTHON</span>
+</div>
+<button class="w-full py-2 bg-white/10 hover:bg-white/20 rounded-lg text-xs font-semibold transition-all backdrop-blur-md">
+                    Edit Profile
+                </button>
+</div>
+</aside>
+<!-- Center Feed -->
+<section class="flex-1 max-w-2xl flex flex-col gap-6 pb-12">
+<!-- Create Post Input -->
+<div class="bg-surface-container-low rounded-xl p-6">
+<div class="flex gap-4 items-center">
+<img alt="User" class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of a young man with glasses smiling subtly in a modern office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8m6GQPEp0qNJeLQl0bVivg-4wjRpA2yxHsT6qrsoc9CFbCTlhdbuOYYuPQnClJf3Y9x5gjp6KnPtnej-dgsQVDO0DvU2h3v1G7gRJCppXoVAqy3kM_AJEF_AiBFI_JnGBivopvB24qzMWMVE1QYUcsgIm8i8HPN4sif2-vDhsO8tX7VuDvPGT3C0B5kEqLL8duqvt5egg8COXwL4r0RhzfAgndi_Ad5oyKRuSN5SI91SDsa1ss5JAgABOaiJ6Nu3iwq_RaEv9uufe"/>
+<button class="flex-1 text-left px-6 py-3 bg-surface-container-high hover:bg-surface-container-highest rounded-full text-on-surface-variant text-sm transition-colors">
+                        Share a project, news, or look for a team...
+                    </button>
+</div>
+</div>
+<!-- Feed Post: Looking for Team -->
+<article class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_24px_rgba(0,0,0,0.04)] overflow-hidden border border-outline-variant/20">
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-3">
+<img alt="Sarah Jenkins" class="w-12 h-12 rounded-xl object-cover" data-alt="Professional headshot of a woman with a confident smile against a soft grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASCGqSPylAC_XCMuOnyn4BWObXf--5tr25EuR7RAvHBDzf6-Pwc5LOuZnHZpGqYyPUwrR9cL7ZZUPB7LWGmYsW9x0SHMOQAHfT9EESnnP20OWRrredTdRRakDRztElOs1swNtWAl-3BuYaQG9fF8nhJaSb4RT8BydCODrQJxxzCACwFoTcqJCi3pP8pTp67SNstyAUs9QDSYbzW8PJ6oZ_THzSu7G0q5OP1ySWlCsIqiNYKnvsFTR6XJhT6pjyb4rqNCMap69Hkvr2"/>
+<div>
+<h4 class="font-bold text-on-surface">Sarah Jenkins</h4>
+<p class="text-xs text-on-surface-variant">2 hours ago • UI/UX Designer</p>
+</div>
+</div>
+<span class="bg-tertiary-fixed/30 text-on-tertiary-fixed-variant text-[10px] px-2.5 py-1 rounded-full font-bold tracking-wide uppercase">Looking for Team</span>
+</div>
+<p class="text-on-surface-variant mb-4 leading-relaxed">
+                        Hey everyone! 👋 I'm starting a project for the <span class="font-semibold text-primary">EthGlobal Hackathon</span> next month. I have the high-fidelity mocks ready for a decentralized voting platform, but I need a solid **Solidity/React developer** to help bring it to life. Anyone interested?
+                    </p>
+<div class="bg-surface-container-low rounded-lg p-4 flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">code_blocks</span>
+</div>
+<div>
+<h5 class="text-xs font-bold">EthGlobal Hackathon 2024</h5>
+<p class="text-[10px] text-on-surface-variant">Prize Pool: $50,000</p>
+</div>
+</div>
+<button class="text-xs font-bold text-primary hover:underline transition-all">View Event</button>
+</div>
+</div>
+<div class="px-6 py-4 border-t border-surface-container-high flex items-center justify-between">
+<div class="flex gap-4">
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+<span class="text-xs font-medium">24</span>
+</button>
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">forum</span>
+<span class="text-xs font-medium">8</span>
+</button>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg text-xs font-bold hover:opacity-90 transition-all shadow-md">
+                        Apply to Join
+                    </button>
+</div>
+</article>
+<!-- Feed Post: Tech Trend -->
+<article class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_24px_rgba(0,0,0,0.04)] overflow-hidden border border-outline-variant/20">
+<div class="aspect-video w-full overflow-hidden relative">
+<img alt="Tech Trends" class="w-full h-full object-cover" data-alt="Cinematic shot of digital futuristic circuit board with glowing blue neon lights and depth of field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8oFSYwbXttzd4NvliQ0fkCTzq9iMq9mPS03Nybig-s0HUD5b4-1YMI2WYODxh_2PqIzo3hymW1yi-WlRRvPSzs2qS2QufKy3wytU4LotsE0qR_QaEn27spuiGvqsKqlxheTxCrLV1NuHvGJl5KtwAKh-GJHoTtotUQsxy1j_nHivUakD5pUF0FZOAzS_sfJJPE96qoEQ2wxxXHuXAoq1cdo7GoY_Tlox_IdS2KEhJpOyULQdgDlP8CF4R5Zmy6AMLK4RR84Ykm_g3"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+<span class="bg-secondary text-on-secondary text-[10px] px-2 py-1 rounded uppercase font-bold tracking-widest">Tech Trends</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex gap-3 mb-4">
+<img alt="Marcus Wade" class="w-12 h-12 rounded-xl object-cover" data-alt="Confident man in a sharp suit standing in a modern architectural building" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5mezfgGLGPcP5gsLbZidRoPrBK3aBIASsEJvKg98kkGPXruAyG4sevMtAa4f_w356Y9KdlEfaMBQh59m1doH-FX50XJil6plJ_XocMuPsh5ki1kMAPuNQySn8G2izt1a1SDB08xUrbebLaA9CSBfBhUxCcqoVHiHHwTDgTn0PbIw87ruD7tN76BswGw8guLeoYIgdYy75rlboHPAFx3Dk1BKdJ0Fax8FZMeXRuAiXdkvf98PJxg3XgQ_mDhxGnSXxCiQTp8lR-fKV"/>
+<div>
+<h4 class="font-bold text-on-surface">Dr. Marcus Wade</h4>
+<p class="text-xs text-on-surface-variant">5 hours ago • AI Researcher</p>
+</div>
+</div>
+<h3 class="font-headline font-extrabold text-xl mb-2">The Shift to On-Device Large Language Models</h3>
+<p class="text-on-surface-variant mb-4 line-clamp-2">
+                        We are entering a new era where privacy and latency concerns are driving LLMs to run directly on consumer hardware. This changes everything for app developers...
+                    </p>
+</div>
+<div class="px-6 py-4 border-t border-surface-container-high flex items-center justify-between">
+<div class="flex gap-4">
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">thumb_up</span>
+<span class="text-xs font-medium">142</span>
+</button>
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">ios_share</span>
+<span class="text-xs font-medium">12</span>
+</button>
+</div>
+<button class="text-primary text-xs font-bold hover:underline transition-all">
+                        Read Full Article
+                    </button>
+</div>
+</article>
+<!-- Feed Post: Hackathon Announcement -->
+<article class="bg-indigo-900 text-on-primary rounded-xl overflow-hidden relative">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-4xl opacity-20">rocket_launch</span>
+</div>
+<div class="p-8">
+<p class="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-400 mb-2">Official Event</p>
+<h2 class="text-3xl font-headline font-extrabold mb-4 leading-tight">Digital Atheneum <br/>Hack 2024</h2>
+<p class="text-indigo-100/80 mb-6 text-sm max-w-md">
+                        Join 500+ students for a 48-hour sprint building the future of educational technology. Workshops, mentorship, and $10k in prizes.
+                    </p>
+<div class="flex items-center gap-6">
+<div>
+<p class="text-[10px] text-indigo-300 font-bold uppercase">Date</p>
+<p class="text-sm font-bold">Nov 12 - 14</p>
+</div>
+<div class="h-8 w-[1px] bg-indigo-700"></div>
+<div>
+<p class="text-[10px] text-indigo-300 font-bold uppercase">Location</p>
+<p class="text-sm font-bold">Remote &amp; SF</p>
+</div>
+<button class="ml-auto bg-teal-400 text-indigo-950 px-8 py-3 rounded-lg font-extrabold hover:bg-teal-300 transition-all shadow-xl shadow-teal-500/10">
+                            Register Now
+                        </button>
+</div>
+</div>
+</article>
+</section>
+<!-- Right Sidebar -->
+<aside class="hidden xl:flex flex-col w-80 gap-8 sticky top-24 h-fit">
+<!-- Upcoming Events -->
+<section class="bg-surface-container-low rounded-2xl p-6">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline font-bold text-on-surface">Upcoming Events</h3>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">event</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4 items-start group cursor-pointer">
+<div class="bg-surface-container-highest rounded-lg p-2 text-center min-w-[50px] group-hover:bg-primary transition-all group-hover:text-white">
+<p class="text-[10px] font-bold uppercase">Oct</p>
+<p class="text-lg font-extrabold leading-none">24</p>
+</div>
+<div>
+<h4 class="text-xs font-bold text-on-surface line-clamp-1">AI in Healthcare Sprints</h4>
+<p class="text-[10px] text-on-surface-variant">Global Virtual Event</p>
+</div>
+</div>
+<div class="flex gap-4 items-start group cursor-pointer">
+<div class="bg-surface-container-highest rounded-lg p-2 text-center min-w-[50px] group-hover:bg-primary transition-all group-hover:text-white">
+<p class="text-[10px] font-bold uppercase">Nov</p>
+<p class="text-lg font-extrabold leading-none">05</p>
+</div>
+<div>
+<h4 class="text-xs font-bold text-on-surface line-clamp-1">Fintech Builders Meetup</h4>
+<p class="text-[10px] text-on-surface-variant">Cambridge, MA</p>
+</div>
+</div>
+<div class="flex gap-4 items-start group cursor-pointer">
+<div class="bg-surface-container-highest rounded-lg p-2 text-center min-w-[50px] group-hover:bg-primary transition-all group-hover:text-white">
+<p class="text-[10px] font-bold uppercase">Nov</p>
+<p class="text-lg font-extrabold leading-none">12</p>
+</div>
+<div>
+<h4 class="text-xs font-bold text-on-surface line-clamp-1">Digital Atheneum Hack</h4>
+<p class="text-[10px] text-on-surface-variant">Hybrid / SF Headquarters</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2 text-xs font-bold text-primary hover:bg-primary/5 rounded-lg transition-all">
+                    View Calendar
+                </button>
+</section>
+<!-- Suggested Connections -->
+<section class="bg-surface-container-low rounded-2xl p-6">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline font-bold text-on-surface">Suggested</h3>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">person_add</span>
+</div>
+<div class="space-y-6">
+<div class="flex items-center gap-3">
+<img alt="Liam Rodriguez" class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of a young man with a slight beard in a stylish casual shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9CLRTVktjHvVvye4RSi50IZ_b7pLERRjPkmEKfDkVLYE8Xfg54a7GK0fcGjpWfstVs7F55nGit2JvJPVmVWl8_ZOQCK6fIR9n-gMsObL4OHUyzMefAHoiC7P5mwNE1HNopYxUp5OjKBudGfrDiEcSqY-T4oQX-W2NKVrwVCT0jmS_zK_nFV39vP-YlotVvctqc0geXq1cX2imKI1X_1rRrZqd9IrxFryTBsTRGGTXteMgn2DAzsjKMwzW3wu5HYPCh1Eu2OZL04P7"/>
+<div class="flex-1 min-w-0">
+<h4 class="text-xs font-bold text-on-surface truncate">Liam Rodriguez</h4>
+<p class="text-[10px] text-on-surface-variant truncate">Python, AWS expert</p>
+</div>
+<button class="text-primary p-1.5 hover:bg-primary/10 rounded-full transition-all">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<div class="flex items-center gap-3">
+<img alt="Emma Zhang" class="w-10 h-10 rounded-full object-cover" data-alt="Close-up photo of a woman with black hair and a soft, professional look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbwIe1foaapC7GRDQZ_trJ1T5Jk7TapZU-JZlT5TG4REw63Vg1PglW6HV6AsQYS-n43UkAWw0Atw17spDHHX6_uaRdu-3FmwFZYAsVBFOU3fwidMxN0sWwj3dxm8yQPxdgfIeQxeCcsN1FixbkLuaDSCTNapSgUgEnH6jv6IPeEJTOvAshDmIrUBcbTNtIWBotwBH0LcXpDEszLSdJY8eeEeW-d-w878ecDZLHSzg2H9ijZj-gsYPcYUi75vNT6a0piLUIQtXFI3a_"/>
+<div class="flex-1 min-w-0">
+<h4 class="text-xs font-bold text-on-surface truncate">Emma Zhang</h4>
+<p class="text-[10px] text-on-surface-variant truncate">Solidity, Web3 Dev</p>
+</div>
+<button class="text-primary p-1.5 hover:bg-primary/10 rounded-full transition-all">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<div class="flex items-center gap-3">
+<img alt="Jordan Smith" class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of a black woman with a bright, welcoming smile in an urban setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx0W9vhob3AUivjZ1rpMllR8LT_19kN_nNQa_Jdm-pPiOnwanLYxVzpSZr8dl7glNDUKwQKyOnO8g2W79XtSRmuHFU_eneQijYfjaOEZuFRUco84CXcKAFi-3H-32hgyUaQkwZT2pd4ZfSpEYskgVswhJQzcdsKDlt0RfuObCBj1eupJJOgUK28foCBWdBhyEn3ZaMaQHewEj11PLuKjSQIw0VAKHh9HSw0LEEmDUiKgOgbDLjVWQ44-uQIXP6SgPklMQYCoKWhm01"/>
+<div class="flex-1 min-w-0">
+<h4 class="text-xs font-bold text-on-surface truncate">Jordan Smith</h4>
+<p class="text-[10px] text-on-surface-variant truncate">React, Tailwind CSS</p>
+</div>
+<button class="text-primary p-1.5 hover:bg-primary/10 rounded-full transition-all">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Community Stats (Bento Element) -->
+<div class="bg-secondary-container/30 rounded-2xl p-6 relative overflow-hidden">
+<div class="relative z-10">
+<p class="text-[10px] font-bold text-on-secondary-container uppercase mb-4">Your Impact</p>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-2xl font-extrabold text-on-secondary-container">12</p>
+<p class="text-[10px] text-on-secondary-container/70">Skill Endorsements</p>
+</div>
+<div>
+<p class="text-2xl font-extrabold text-on-secondary-container">3</p>
+<p class="text-[10px] text-on-secondary-container/70">Team Invites</p>
+</div>
+</div>
+</div>
+<div class="absolute bottom-0 right-0 opacity-10">
+<span class="material-symbols-outlined text-8xl -mb-8 -mr-8">insights</span>
+</div>
+</div>
+</aside>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-6 mt-auto bg-slate-100 dark:bg-indigo-950 border-t border-slate-200/50 dark:border-indigo-900/30">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-6">
+<div class="flex flex-col gap-2">
+<span class="font-['Manrope'] font-bold text-indigo-900 dark:text-indigo-50">Skill Connection</span>
+<p class="font-['Inter'] text-sm tracking-normal text-slate-500 dark:text-slate-400">© 2024 Skill Connection. Built for the Digital Atheneum.</p>
+</div>
+<nav class="flex gap-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-700 dark:hover:text-teal-300 underline underline-offset-4 transition-all text-sm" href="#">Community</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-700 dark:hover:text-teal-300 underline underline-offset-4 transition-all text-sm" href="#">Support</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-700 dark:hover:text-teal-300 underline underline-offset-4 transition-all text-sm" href="#">Privacy</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-700 dark:hover:text-teal-300 underline underline-offset-4 transition-all text-sm" href="#">Terms</a>
+</nav>
+</div>
+</footer>
+<!-- Mobile Navigation Shell -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container-lowest glass-nav border-t border-outline-variant/10 px-6 h-16 flex items-center justify-between z-50">
+<a class="text-primary flex flex-col items-center" href="#">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dynamic_feed</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">groups</span>
+</a>
+<button class="bg-primary text-on-primary w-12 h-12 rounded-full flex items-center justify-center -mt-8 shadow-lg shadow-primary/30">
+<span class="material-symbols-outlined">add</span>
+</button>
+<a class="text-on-surface-variant flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">notifications</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">person</span>
+</a>
+</nav>
+</body></html>

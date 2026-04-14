@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Skill Connection | Hackathon Explorer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "outline": "#767683",
+                        "on-primary-container": "#9aa5ff",
+                        "surface-variant": "#e0e3e6",
+                        "on-primary-fixed": "#000c62",
+                        "surface-bright": "#f7f9fc",
+                        "secondary-container": "#8feefc",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#dfe0ff",
+                        "on-surface": "#191c1e",
+                        "on-primary-fixed-variant": "#303c9a",
+                        "surface-container-highest": "#e0e3e6",
+                        "tertiary-fixed": "#68fadd",
+                        "secondary-fixed": "#92f1fe",
+                        "outline-variant": "#c6c5d4",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#2d3133",
+                        "surface-container": "#eceef1",
+                        "surface-container-high": "#e6e8eb",
+                        "surface-container-low": "#f2f4f7",
+                        "secondary": "#006972",
+                        "secondary-fixed-dim": "#75d5e2",
+                        "inverse-primary": "#bcc2ff",
+                        "inverse-on-surface": "#eff1f4",
+                        "surface-dim": "#d8dadd",
+                        "on-background": "#191c1e",
+                        "tertiary-container": "#00493e",
+                        "primary-container": "#283593",
+                        "surface-tint": "#4955b3",
+                        "on-tertiary-fixed": "#00201a",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#0b1a7d",
+                        "tertiary": "#003129",
+                        "surface": "#f7f9fc",
+                        "on-tertiary-fixed-variant": "#005145",
+                        "on-secondary-fixed-variant": "#004f56",
+                        "tertiary-fixed-dim": "#44ddc1",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#006d77",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#454652",
+                        "on-secondary-fixed": "#001f23",
+                        "background": "#f7f9fc",
+                        "primary-fixed-dim": "#bcc2ff",
+                        "on-tertiary-container": "#0bc1a7",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+            color: #191c1e;
+        }
+        h1, h2, h3, .font-headline {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-indigo-950/80 backdrop-blur-xl shadow-[0px_12px_32px_rgba(25,28,30,0.04)]">
+<div class="flex justify-between items-center px-6 h-16 max-w-full mx-auto">
+<div class="text-xl font-extrabold tracking-tighter text-indigo-900 dark:text-indigo-50 font-['Manrope']">
+                Skill Connection
+            </div>
+<nav class="hidden md:flex items-center gap-8 font-['Manrope'] tracking-tight font-semibold">
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-900 dark:hover:text-indigo-100 transition-colors" href="#">Dashboard</a>
+<a class="text-indigo-700 dark:text-teal-400 font-bold border-b-2 border-indigo-700 dark:border-teal-400 pb-1" href="#">Hackathons</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-900 dark:hover:text-indigo-100 transition-colors" href="#">Internships</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<input class="bg-surface-container-high border-none rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary-container w-64 transition-all" placeholder="Search hackathons..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+</div>
+<button class="p-2 hover:bg-slate-100/50 rounded-lg transition-all text-indigo-900">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<img alt="User Profile Avatar" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="professional headshot of a smiling young man in a modern office setting with warm natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdy40RU9YR8La11USSWdg3LpQDi57cOW-9l0q-3szxkpTibeIWarlVOO9ct_Hd_lyG1hxAcAaly937tmdl3z1KtOevB8YU27dslzOTDZJ-i9Zxl09jFHBeG9azRQZJHphZvR1r8FHeblLFjby4Ta6WbB9Xyh7xoemcAPXef7J2I-WSOAeEkuLOAZUmKYnKAjAfYB0GuOMb9Hn4SpBSrAMfJGHmvSLtJHrRvUNEbaPip6odq9caCnnfAstZ59zIiHOi18ZP2QdH1-xR"/>
+</div>
+</div>
+</header>
+<main class="mt-24 mb-12 px-6 max-w-7xl mx-auto w-full flex flex-col md:flex-row gap-8">
+<!-- Filter Sidebar -->
+<aside class="w-full md:w-72 flex-shrink-0 space-y-6">
+<div class="bg-surface-container-low p-6 rounded-xl space-y-8">
+<div>
+<h3 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant mb-4 font-headline">Location</h3>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary-container bg-surface border-outline-variant" type="checkbox"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Online / Remote</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary-container bg-surface border-outline-variant" type="checkbox"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">In-Person / Offline</span>
+</label>
+</div>
+</div>
+<div>
+<h3 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant mb-4 font-headline">Date Range</h3>
+<input class="w-full bg-surface-container-high border-none rounded-lg p-2 text-sm text-on-surface focus:ring-2 focus:ring-primary-container mb-2" type="date"/>
+<input class="w-full bg-surface-container-high border-none rounded-lg p-2 text-sm text-on-surface focus:ring-2 focus:ring-primary-container" type="date"/>
+</div>
+<div>
+<h3 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant mb-4 font-headline">Required Skills</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-xs font-medium cursor-pointer hover:brightness-95">React</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium cursor-pointer hover:brightness-95">Python</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium cursor-pointer hover:brightness-95">UI Design</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium cursor-pointer hover:brightness-95">Solidity</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs font-medium cursor-pointer hover:brightness-95">AI/ML</span>
+</div>
+</div>
+<div>
+<h3 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant mb-4 font-headline">Team Size</h3>
+<select class="w-full bg-surface-container-high border-none rounded-lg p-2 text-sm text-on-surface focus:ring-2 focus:ring-primary-container">
+<option>Any Size</option>
+<option>Solo (1)</option>
+<option>Small (2-4)</option>
+<option>Large (5+)</option>
+</select>
+</div>
+<button class="w-full py-3 bg-primary text-on-primary rounded-xl font-bold text-sm transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-primary/20">
+                    Apply Filters
+                </button>
+</div>
+<!-- Contextual Card -->
+<div class="bg-primary-container p-6 rounded-xl text-on-primary-container relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="font-headline font-bold text-lg mb-2">Host Your Own?</h4>
+<p class="text-xs opacity-80 mb-4 leading-relaxed">Join 500+ organizers building the future of collaborative tech.</p>
+<button class="bg-surface-container-lowest text-primary px-4 py-2 rounded-lg text-xs font-bold hover:bg-surface-bright transition-colors">
+                        Post a Hackathon
+                    </button>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-8xl" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<div class="flex-1 space-y-8">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+<div>
+<h1 class="text-4xl font-extrabold tracking-tight text-primary font-headline">Hackathon Explorer</h1>
+<p class="text-on-surface-variant mt-2 font-body">Find your next team and build something extraordinary.</p>
+</div>
+<div class="flex gap-2 bg-surface-container-low p-1 rounded-xl">
+<button class="p-2 bg-surface-container-lowest rounded-lg shadow-sm text-primary">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors">
+<span class="material-symbols-outlined">list</span>
+</button>
+</div>
+</div>
+<!-- Bento Grid Hackathons -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl transition-all hover:shadow-[0px_12px_32px_rgba(25,28,30,0.06)] group flex flex-col h-full border border-transparent hover:border-outline-variant/20">
+<div class="flex justify-between items-start mb-6">
+<img alt="TechNova Logo" class="w-12 h-12 rounded-lg object-contain bg-surface-container p-2" data-alt="minimalist modern corporate logo design for a tech company in navy and white color palette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-NAf9ZZyv9ihJerluwziHceOchBFPZULzSRNqnGnfG96CuP5btpSYKN0fYDiYHA7TPEygpobxBVBoB62ERbys2EwOcGHnu__rsgysV3AH_UF5rXRxbvdjqRJ6eMWpmivG1cjOX38_oMOctZGy9nKr3a-jUp6FfCaO-P2NxG8kgueRB6PzeKY1Xpj7FH3al8FZuCsF-60VYtfwvyNY0kVI4DIFBJj_23GdbMk83CTelzAXpvy-9aomZObVHHhuq-lStC7KkOiPlC89"/>
+<div class="flex flex-col items-end">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-2">Remote</span>
+<span class="text-on-surface-variant text-xs font-medium">Starts in 3 days</span>
+</div>
+</div>
+<h3 class="text-xl font-bold font-headline text-on-surface group-hover:text-primary transition-colors mb-2">Neural Nexus: AI For Good</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6 line-clamp-2">Develop innovative AI solutions focusing on climate change and humanitarian aid. $50,000 prize pool up for grabs.</p>
+<div class="flex items-center gap-4 text-xs text-on-surface-variant mb-6 pb-6 border-b border-outline-variant/10">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>Oct 12 - 14</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">group</span>
+<span>2-4 Members</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="text-[10px] font-bold px-2 py-0.5 rounded border border-outline-variant text-outline">Python</span>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded border border-outline-variant text-outline">TensorFlow</span>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded border border-outline-variant text-outline">GCP</span>
+</div>
+<div class="mt-auto flex gap-3">
+<button class="flex-1 bg-primary text-on-primary py-3 rounded-xl font-bold text-sm hover:brightness-110 active:scale-[0.98] transition-all">Join Team</button>
+<button class="px-4 border border-outline-variant rounded-xl hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-primary">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl transition-all hover:shadow-[0px_12px_32px_rgba(25,28,30,0.06)] group flex flex-col h-full border border-transparent hover:border-outline-variant/20">
+<div class="flex justify-between items-start mb-6">
+<img alt="Ethos Web3 Logo" class="w-12 h-12 rounded-lg object-contain bg-surface-container p-2" data-alt="clean geometric logo for a blockchain company featuring abstract interconnected nodes in teal and grey" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkoXW3KofWOa9rX5S7YLhFJBlD1r6mMIDe4RIlwi_nBzbaDaUjdnftrnz4-jTpYDova0Ro6b28wEqZmtf8tS2wWgM21npyrp3vlFVc1Mzi7hCtat17JbW1H3MxivkWGrpbI9BLdwVWlhTEWASiKaoAJlUQ0RfHE3y1LMV1E071V6DEHnYp-Q7NAJBthSw_YufaWqvJDCdkfhco2vlnq6eWfmekrYpngbGj4o4as2PDBUsx_CkMzPcNLYd38pYfRLbp6JFO3mbNzpum"/>
+<div class="flex flex-col items-end">
+<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-2">London, UK</span>
+<span class="text-on-surface-variant text-xs font-medium">Starts in 1 week</span>
+</div>
+</div>
+<h3 class="text-xl font-bold font-headline text-on-surface group-hover:text-primary transition-colors mb-2">Web3 Infrastructure Summit</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6 line-clamp-2">Building the next generation of decentralized identity and storage solutions at the heart of London's tech scene.</p>
+<div class="flex items-center gap-4 text-xs text-on-surface-variant mb-6 pb-6 border-b border-outline-variant/10">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>Oct 20 - 22</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">group</span>
+<span>Solo or Pair</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="text-[10px] font-bold px-2 py-0.5 rounded border border-outline-variant text-outline">Solidity</span>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded border border-outline-variant text-outline">Rust</span>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded border border-outline-variant text-outline">React</span>
+</div>
+<div class="mt-auto flex gap-3">
+<button class="flex-1 bg-primary text-on-primary py-3 rounded-xl font-bold text-sm hover:brightness-110 active:scale-[0.98] transition-all">Join Team</button>
+<button class="px-4 border border-outline-variant rounded-xl hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-primary">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Card 3 (Hero/Featured Card) -->
+<div class="lg:col-span-2 bg-gradient-to-br from-primary to-primary-container p-8 rounded-xl text-on-primary relative overflow-hidden group">
+<div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+<div class="flex-1">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-[0.2em] mb-4 inline-block">Featured Hackathon</span>
+<h3 class="text-3xl font-extrabold font-headline mb-4">Design Systems 2.0: The Future of UI</h3>
+<p class="opacity-80 text-sm md:text-base mb-6 leading-relaxed max-w-xl">A collaborative 48-hour sprint focusing on tokenized workflows, accessibility by default, and AI-driven component generation.</p>
+<div class="flex flex-wrap gap-6 text-sm mb-8">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-fixed">pin_drop</span>
+<span>Global Virtual Event</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-fixed">currency_exchange</span>
+<span>$10,000 Grant Prize</span>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="bg-white text-primary px-8 py-3 rounded-xl font-bold hover:scale-105 transition-transform">Register Now</button>
+<button class="bg-white/10 backdrop-blur-md text-white px-8 py-3 rounded-xl font-bold hover:bg-white/20 transition-colors">View Details</button>
+</div>
+</div>
+<div class="w-full md:w-1/3">
+<div class="aspect-square rounded-2xl overflow-hidden shadow-2xl relative">
+<img alt="Abstract Tech" class="w-full h-full object-cover" data-alt="high-tech abstract visualization of glowing digital circuits and data flow in deep blue and neon cyan colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVwgoTuYbaugaI4RQaHyB-DDPEjawcWKQCnElsVWmR_IpSb6K0wgvMJfqLzjqUm7NX8y5sAHMEg6pipGygAG-lXwwWVC-fj9HBSMSyoCAsYqJm_lTTFEu-C_fnelvOv9uY3I0LXZIdWfhsCjXxGlESntR0iUspxhQO6kTimnyXUDHHFbYTNYNY5PmpfgssY93sXPD1lx5oDjFBejoKWbviwsWmqOs20JS5OHq2SCNu2NL0dqcybPMo0XVPILPcX7_dHLv6tRlDpH__"/>
+<div class="absolute inset-0 bg-primary/20 mix-blend-overlay"></div>
+</div>
+</div>
+</div>
+<!-- Decorative background shapes -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+<div class="absolute bottom-0 left-0 w-32 h-32 bg-secondary-fixed/10 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2"></div>
+</div>
+</div>
+<!-- More results loading indicator -->
+<div class="py-12 flex justify-center">
+<button class="group flex items-center gap-3 text-on-surface-variant font-semibold hover:text-primary transition-colors">
+<span class="material-symbols-outlined group-hover:rotate-180 transition-transform duration-500">sync</span>
+                    Load more hackathons
+                </button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-100 dark:bg-indigo-950 w-full py-12 px-6 mt-auto border-t border-slate-200/50 dark:border-indigo-900/30">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-6 font-['Inter'] text-sm tracking-normal">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-['Manrope'] font-bold text-indigo-900 dark:text-indigo-50 text-lg">Skill Connection</span>
+<p class="text-slate-500 dark:text-slate-400">© 2024 Skill Connection. Built for the Digital Atheneum.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-700 dark:hover:text-teal-300 underline underline-offset-4 transition-all" href="#">Community</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-700 dark:hover:text-teal-300 underline underline-offset-4 transition-all" href="#">Support</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-700 dark:hover:text-teal-300 underline underline-offset-4 transition-all" href="#">Privacy</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-700 dark:hover:text-teal-300 underline underline-offset-4 transition-all" href="#">Terms</a>
+</div>
+</div>
+</footer>
+<!-- FAB (Suppressed on Explorer/Search but enabled for 'Post a Hackathon' as primary action) -->
+<div class="fixed bottom-8 right-8 z-40 hidden sm:block">
+<button class="bg-primary text-on-primary w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all group overflow-hidden">
+<span class="material-symbols-outlined text-2xl group-hover:hidden">add</span>
+<span class="hidden group-hover:inline-flex items-center px-4 font-bold text-xs">POST</span>
+</button>
+</div>
+</body></html>
